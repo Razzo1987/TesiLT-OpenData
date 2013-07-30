@@ -1,0 +1,100 @@
+%%% http://www.dm.unibo.it/studenti/latex/tesi.php
+
+\documentclass[a4paper,12pt]{report}  %inizio documento, solo fronte, tipo report
+% \documentclass[a4paper, twoside]{article} %inizio documento, stampato su 2 lati, tipo articolo
+\usepackage[italian]{babel} %imposta la lingua a italiano
+\usepackage{makeidx} %aggiunge il pakage degli indici
+\usepackage{graphicx} %permette di importare i grafici in pdf e immagini
+\usepackage{latexsym} %permette di inserire i caratteri speciali
+%\usepackage{multirow} %colonne a multiriga
+\usepackage[breaklinks]{hyperref} %genera l'indice linkato
+%\setcounter{secnumdepth}{-2} % toglie  la numerazione ai capitoli e indice
+\usepackage[applemac]{inputenc} %permette la compilazione delle lettere accentate in MacOSX
+% \usepackage[utf8]{inputenc} %se non va quello sopra
+\usepackage{indentfirst} %serve per avere l'indentazione all'inizio di capitoli, sezioni, etc.
+\usepackage{fancyhdr} %serve per impaginare bene la tesi
+%\usepackage{showkeys} %serve per mostrare le etichette, 										!!! va tolta per la versione definitiva; 
+
+\pagestyle{plain} %stampa indice a piepagina
+
+\author{Racchetti Luca\\703311}
+\title{Tesi}
+\date{\today}
+
+\pagestyle{fancy}\addtolength{\headwidth}{20pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\cfoot{}
+
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+
+%\makeindex %genera l'indice
+
+\begin{document} %inizio del documento
+
+%-------------------------------------------------------------------------
+
+\maketitle %genera la prima pagina
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\tableofcontents % Indice
+%\printindex % stampa l'indice
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\chapter{Introduzione} 
+	\input{1.Introduzione/1.Obiettivo-della-tesi}
+	\input{1.Introduzione/2.Struttura}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\chapter{Cosa si intende per OpenData} 
+	\input{2.Cosa-si-intende-per-OpenData/1.Movimento-OpenData}
+	\input{2.Cosa-si-intende-per-OpenData/2.Impianto-normativo}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\chapter{Piattaforme Tecnologiche} 
+	\input{3.Piattaforme-Tecnologiche/1.Socrata-(OpenSource)}
+	\input{3.Piattaforme-Tecnologiche/2.Ckan}
+	\input{3.Piattaforme-Tecnologiche/3.Sister.it}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\chapter{Progettazione portale OpenData a Vigevano} 
+	\input{4.Progettazione-portale-OpenData-a-Vigevano/1.Descrizione-del-comune}
+	\input{4.Progettazione-portale-OpenData-a-Vigevano/2.Progettazione-piattaforma}
+	\input{4.Progettazione-portale-OpenData-a-Vigevano/3.Integrazione-con-Regione-Lombardia}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\chapter{Sviluppo-della-soluzione} 
+	\input{5.Sviluppo-della-soluzione/1.Caricamento-automatico}
+	\input{5.Sviluppo-della-soluzione/2.Dizionario-dati}
+	\input{5.Sviluppo-della-soluzione/3.Blueprint}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\input{6.Demo}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\input{7.Conclusioni-e-sviluppi-futuri}
+\newpage %nuova pagina
+
+%-------------------------------------------------------------------------
+
+\input{Bibliografia}
+
+%-------------------------------------------------------------------------
+\end{document} %fine del documento
