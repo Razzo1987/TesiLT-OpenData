@@ -6,7 +6,11 @@
 \usepackage{makeidx} %aggiunge il pakage degli indici
 \usepackage{graphicx} %permette di importare i grafici in pdf e immagini
 \usepackage{latexsym} %permette di inserire i caratteri speciali
+\usepackage{quoting} %per inserire citazioni
+\quotingsetup{font=itshape} %imposta i font per le citazioni
+\usepackage{pifont} %permette di inserire simboli
 %\usepackage{multirow} %colonne a multiriga
+\usepackage{tabularx} %tabelle migliorate
 \usepackage[breaklinks]{hyperref} %genera l'indice linkato
 %\setcounter{secnumdepth}{-2} % toglie  la numerazione ai capitoli e indice
 \usepackage[applemac]{inputenc} %permette la compilazione delle lettere accentate in MacOSX
@@ -51,23 +55,23 @@ Corso di laurea in Informatica}}
 {\LARGE{\bf una piattaforma per}}\\
 \vspace{3mm}
 {\LARGE{\bf l'erogazione di open data}}\\
-\vspace{20mm} {\includegraphics[scale=0.15]{unimib.png}}
+\vspace{20mm} {\includegraphics[scale=0.12]{img/unimib}}
 \end{center}
 \vspace{20mm}
 \par
 \noindent
-\begin{minipage}[t]{0.47\textwidth}
-{\large{\bf Relatore:\\
-Dott.\\
+\begin{minipage}[t]{0.44\textwidth}
+{\large Relatore:\\
+{\bf Dott.\\
 \href{malto:andrea.maurino@unimib.it}{Andrea Maurino}\\}}\\
-{\large{\bf Co-relatore:\\
-Dott.\\
+{\large Co-relatore:\\
+{\bf Dott.\\
 \href{malto:gianluigi.viscusi1@unimib.it}{Gianluigi Viscusi}}}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.47\textwidth}\raggedleft
-{\large{\bf Relazione della prova finale di:\\
-Luca Racchetti\\
+\begin{minipage}[t]{0.50\textwidth}\raggedleft
+{\large Relazione della prova finale di:\\
+{\bf Luca Racchetti\\
 Matricola 703311}}
 \end{minipage}
 \vspace{10mm}
@@ -116,7 +120,7 @@ Matricola 703311}}
 
 %-------------------------------------------------------------------------
 
-\chapter{Sviluppo-della-soluzione} 
+\chapter{Sviluppo della soluzione} 
 	\input{5.Sviluppo-della-soluzione/1.Caricamento-automatico}
 	\input{5.Sviluppo-della-soluzione/2.Dizionario-dati}
 	\input{5.Sviluppo-della-soluzione/3.Blueprint}

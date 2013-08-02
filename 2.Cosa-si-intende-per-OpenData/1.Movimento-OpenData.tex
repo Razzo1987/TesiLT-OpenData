@@ -1,8 +1,57 @@
 \section{Movimento OpenData}
-% Filosofia, scala 5 stelle, Obama, ...
+% Filosofia
+Con il termine Open Data (o dati aperti) si definisce sia la filosofia che la pratica, che prevedono l'esistenza di diverse tipologie di dati accessibili liberamente a tutti, senza restrizioni derivanti da brevetti o copyright, fatta eccezione per le licenze che obbligano a citarne la fonte o al rilascio dei dati modificati con lo stesso tipo di licenza.
 
-%Con Open Data si definisce una filosofia (ma anche una pratica) che implica che alcune tipologie di dati siano liberamente accessibili a tutti, senza restrizioni di copyright, brevetti o altre forme di controllo che ne limitino la riproduzione. L'open data si richiama alla pi√π ampia disciplina dell‚ÄôOpen Government, cio√® una dottrina che prevede l‚Äôapertura della Pubblica amministrazione, intesa sia in termini di trasparenza che di partecipazione diretta dei cittadini, anche attraverso l‚Äôuso delle nuove tecnologie della comunicazione‚Äù. Partecipazione, Democrazia, Comunit√†, Diritti‚Ä¶ sono solo alcune delle parole che vengono associate all‚ÄôOpenData. Pur abbracciando l‚Äôaspetto filosofico e concordando con il comune approccio ideologico (i dati sono acquisiti con i soldi dei cittadini e a loro debbono tornare !), riteniamo che solo un‚Äôanalisi critica ed impietosa della situazione attuale possa produrre risultati concreti (si veda il percorso travagliato dell‚ÄôOpenSource all‚Äôinterno della Pubblica Amministrazione)
+L'Open Data richiama anche la disciplina dell'Open Government, ovvero l'idea in base alla quale la pubblica amministrazione deve essere aperta ai cittadini sia in termini di trasparenza che di partecipazione diretta al processo decisionale.
 
+Partecipazione, Democrazia, Comunità, Diritti‚ sono solo alcune delle parole che vengono associate agli OpenData. Ciò può avvenire attraverso il ricorso alle nuove tecnologie dell'informazione e della comunicazione, sulla base delle esperienze positive già sperimentate in altri movimenti e comunità ``open'', quali l'\textit{open source}, l'\textit{open access} e l'\textit{open content}. Negli anni la pratica e l'ideologia che caratterizza i dati aperti si è ben consolidata, ma solo recentemente è nata una nuova accezione legata maggiormente al mondo di Internet, che diventa il canale principale di diffusione dei dati stessi, e con essa si identifica il termine ``Open Data''. \cite{wiki-datiaperti}\\
 
-%I dati aperti, comunemente chiamati con il termine inglese open data anche nel contesto italiano, sono alcune tipologie di dati liberamente accessibili a tutti, privi di brevetti o altre forme di controllo che ne limitino la riproduzione e le cui restrizioni di copyright eventualmente si limitano ad obbligare di citare la fonte o al rilascio delle modifiche allo stesso modo. L'open data si richiama alla pi√π ampia disciplina dell‚Äôopen government, cio√® una dottrina in base alla quale la pubblica amministrazione dovrebbe essere aperta ai cittadini, tanto in termini di trasparenza quanto di partecipazione diretta al processo decisionale, anche attraverso il ricorso alle nuove tecnologie dell'informazione e della comunicazione; e ha alla base un'etica simile ad altri movimenti e comunit√† di sviluppo "open", come l'open source, l'open access e l'open content. Nonostante la pratica e l'ideologia che caratterizzano i dati aperti siano da anni ben consolidate, con la locuzione "open data" si identifica una nuova accezione piuttosto recente e maggiormente legata a Internet come canale principale di diffusione dei dati stessi.
-%\cite{wiki-datiaperti}
+% scala 5 stelle
+% \subsection{Scala 5 stelle}
+Tim Berners Lee in un suo testo del 2006, successivamente integrato nel 2010 \cite{BernersLee-LinkedData}, per incoraggiare i governi ed altri enti pubblici a rilasciare i dati in formato aperto, introdusse il concetto di \textbf{Dati a 5 stelle}. I concetti trattati nel articolo sono il \textit{Semantic Web} e i \textit{Linked Open Data}, ovvero un particolare tipo di dato strutturato semanticamente che viene pubblicato in rete con licenze di consultazione e d’uso poco restrittive (quali le licenze Creative Commons o le licenze nazionali) e che viene classificato secondo la scala a 5 stelle.\\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1.80]{img/5star-steps}
+\caption{Scala a 5 stelle}
+\label{fig:5star-steps}
+\end{center}
+\end{figure}
+
+La scala a 5 stelle vuole misurare quanto i dati siano aperti e accessibili, assegnando le stelle secondo i seguenti criteri:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabularx}{\textwidth}{r X}
+no star & \textbf{Web data} (in qualsiasi formato) senza nessuna licenza open\\
+\ding{72} & Il dato è disponibile sul Web (in qualsiasi formato) con una \textbf{licenza aperta}\\
+\ding{72} \ding{72} & Il dato è disponibile in un formato strutturato (ad esempio un Excel invece della scansione di una tabella) in modo che possa essere \textbf{riutilizzato}\\
+\ding{72} \ding{72} \ding{72} & Il dato è in un \textbf{formato non proprietario} (ad esempio un CSV invece di un Excel)\\
+\ding{72} \ding{72} \ding{72} \ding{72} & Il dato utilizza gli \textbf{URI} per identificare gli oggetti, in modo che le persone possano far riferimento alle sue risorse e fare uso di RDF\\
+\ding{72} \ding{72} \ding{72} \ding{72} \ding{72} & Il \textbf{dato} è \textbf{collegato} ad altri dati per fornire un contesto\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+% Obama, ...
+% \subsection{Open Data in ambito governativo}
+Una grossa spinta all'affermazione del movimento Open Data in ambito governativo è stata data dal presidente degli Stati Uniti d'America \textbf{Barack Obama} con la promulgazione di una Direttiva sull'Open government nel dicembre 2009 \cite{Direttiva-OpenGovernament}:
+
+\begin{quoting}
+Fin dove possibile e sottostando alle sole restrizioni valide, le agenzie devono pubblicare le informazioni on line utilizzando un formato aperto (open) che possa cioè essere recuperato, soggetto ad azioni di download, indicizzato e ricercato attraverso le applicazioni di ricerca web più comunemente utilizzate. Per formato open si intende un formato indipendente rispetto alla piattaforma, leggibile dall’elaboratore e reso disponibile al pubblico senza che sia impedito il riuso dell’informazione veicolata.
+\end{quoting}
+
+Alla direttiva è stato dato seguito con la pubblicazione sul sito web \url{Data.gov} di molti dati in formato aperto. Il portale ha infatti lo scopo di raccogliere tutte le informazioni rese disponibili dagli enti statunitensi. \cite{wiki-datiaperti}
+Nel maggio 2013 Barack Obama ha firmato un nuovo ordine esecutivo \cite{WhiteHouse-OpenData} che obbliga tutte le agenzie governative ad adottare dati in formato aperto compatibili anche con le future infrastrutture informatiche che verranno adottate negli USA. Le pubbliche amministrazioni dovranno assicurarsi, dove è legalmente consentito, che i dati vengano rilasciati in modo tale da risultare facilmente accessibili e utilizzabili.  
+
+% Italia
+% \subsection{Open Data in Italia}
+%In Italia si è cominciato a parlare di dati aperti anche grazie al progetto OpenStreetMap. Con il fine di creare uno stradario liberamente utilizzabile, tra il 2007 e il 2010 alcune amministrazioni locali, grazie all'iniziativa di volontari (tra cui Merano, Vicenza, Montecchio Maggiore e Schio), hanno pubblicato con licenza aperta i dati dei propri stradari e altri propri dati. Il Ministro per la pubblica amministrazione e l'innovazione Renato Brunetta in una intervista[5] rilasciata il 3 giugno 2010 all'allora direttore di Wired Italia Riccardo Luna ha anticipato la realizzazione di un portale italiano dell’Open data sul modello dei datagov anglosassoni entro la fine dell'anno. In data 18 Ottobre 2011 il portale dati.gov.it è stato messo on line.
+
+%La regione Piemonte nel maggio del 2010 ha realizzato il proprio portale regionale dei dati aperti dati.piemonte.it. Il sito resta al momento la più riuscita e strutturata esperienza nazionale sul tema dei dati aperti. La regione Emilia-Romagna ha seguito l'esempio piemontese nel 2011 con il suo sito Open Data.
+
+%Nel marzo 2012 FormezPA ha rilasciato la seconda release della licenza Italian Open Data License, indicata come IODL v2.0[6], priva di clausole del tipo "condividi-allo-stesso-modo" e con la sola richiesta di attribuzione della fonte per il riutilizzo dei dati. La licenza è progettata per i dati delle pubbliche amministrazioni italiane
+
+%Open Knowledge Foundation Italia e il Centro NEXA su Internet & Società del Politecnico di Torino offrono il repository it.ckan.net dove chiunque può segnalare i dataset italiani disponibili online. Un servizio analogo era gestito dalla comunità del sito Spaghetti Open Data, ma il servizio è stato chiuso dopo il rilascio del sito nazionale, nel quale sono confluiti i dataset presenti. Da settembre 2012 è disponibile anche DatiOpen.it, un'altra iniziativa indipendente che offre a tutti servizi gratuiti di segnalazione, caricamento e visualizzazione.
+
+%L'associazione di giornalismo investigativo e Radio Radicale hanno dato il via al primo corso strutturato di Open Data Journalism[7].
