@@ -1,2 +1,23 @@
 \section{Socrata (OpenSource)}
 % Versione Open Source
+Socrata è una piattaforma sviluppata dall'omonimia società con sede negli Stati Uniti d'America. Socrata è un servizio "Software as a service".
+Dal 10 aprile 2013 è disponibile anche in una versione Community Edition rilasciata come OpenSource al fine di promuovere uno standard intorno ai dati aperti e far crescere la comunità.
+
+Il Socrata Open Data Server e le componenti che lo compongono, sono stati resi disponibili con licenza Apache. Il sistema è suddiviso in una serie di componenti separate, ma che si incastrano nell'architettura:
+
+\begin{itemize}
+\item \textbf{soql-reference}, Implementazione di riferimento del linguaggio di interrogazione SoQL.
+\item \textbf{socrata-http}, Toolkit per la creazione di servizi HTTP.
+\item \textbf{soql-es-adapter}, ElasticSearch Secondary Store per SoQL Data Service.
+\item \textbf{socrata-csv}, Un sottile involucro Scalaish intorno opencsv.
+\item \textbf{socrata-utils}, Classi-Utility utilizzate in tutto il Socrata Open Data Server.
+\item \textbf{data-coordinator}, Coordina la distribuzione degli aggiornamenti tra archivi di dati primari e secondari.
+\end{itemize}
+
+La Community Edition condivide lo stesso core della versione proprietaria, ma al momento manca completamente il front-end per gestire comodamente i datset che è invece presente nella versione SaaS.
+Secondo la Roadmap era prevista intorno all'Agosto 2013 il rilascio della versione beta finale, compresa della documentazione e degli strumenti che avrebbero permesso di installare e rendere funzionate l'intero Open Data Server.
+
+Socrata offre sia numerose API per gestire i dataset, che strumenti di visualizzazione che mostrano i dati caricati attraverso un sistema di preview tabellare dotato di filtri avanzati, oppure su diverse tipologie di mappe in caso di dati geolocalizzati.
+Permette inoltre di esportare i dati in vari formati (CSV, XLS, XLSX, XML, JSON).
+
+In Italia Socrata è stata usata con successo dalla Regione Lombardia con un centinaio di dataset pubblicati.
