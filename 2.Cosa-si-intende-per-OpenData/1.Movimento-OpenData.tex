@@ -5,12 +5,38 @@
 I dati aperti, comunemente chiamati con il termine inglese Open Data anche nel contesto italiano, sono alcune tipologie di dati liberamente accessibili a tutti, privi di brevetti o altre forme di controllo che ne limitino la riproduzione e le cui restrizioni di copyright eventualmente si limitano ad obbligare di citare la fonte o al rilascio delle modifiche allo stesso modo. \cite{wiki-datiaperti}
 \end{quoting}
 
-L'Open Data è una strategia fondamentale della più ampia disciplina dell'Open Government, ovvero l'idea in base alla quale la pubblica amministrazione deve essere aperta ai cittadini in termini di trasparenza, di collaborazione e di partecipazione diretta al processo decisionale.
+Partecipazione, Democrazia, Comunità, Diritti‚ sono solo alcune delle parole che vengono associate agli OpenData. Ciò può avvenire attraverso il ricorso alle nuove tecnologie dell'informazione e della comunicazione, sulla base delle esperienze positive già sperimentate in altri movimenti e comunità “open”, quali l'\textit{open source}, l'\textit{open access} e l'\textit{open content}. Negli anni la pratica e l'ideologia che caratterizza i dati aperti si è ben consolidata, ma solo recentemente è nata una nuova accezione legata maggiormente al mondo di Internet, che diventa il canale principale di diffusione dei dati stessi, e con essa si identifica il termine “Open Data”. \cite{wiki-datiaperti}.
 
-Partecipazione, Democrazia, Comunità, Diritti‚ sono solo alcune delle parole che vengono associate agli OpenData. Ciò può avvenire attraverso il ricorso alle nuove tecnologie dell'informazione e della comunicazione, sulla base delle esperienze positive già sperimentate in altri movimenti e comunità “open”, quali l'\textit{open source}, l'\textit{open access} e l'\textit{open content}. Negli anni la pratica e l'ideologia che caratterizza i dati aperti si è ben consolidata, ma solo recentemente è nata una nuova accezione legata maggiormente al mondo di Internet, che diventa il canale principale di diffusione dei dati stessi, e con essa si identifica il termine “Open Data”. \cite{wiki-datiaperti}\\
+L'Open Data è una strategia fondamentale della più ampia disciplina dell'Open Government, ovvero l'idea in base alla quale la pubblica amministrazione deve essere aperta ai cittadini in termini di trasparenza, di collaborazione e di partecipazione diretta al processo decisionale. Ciò comporta che nell’Open Data non ci sia \textit{e-participation} (partecipazione in processi di governo e di governance), e che i dati siano messi a disposizione dalla Pubblica Amministrazione in sola lettura da parte degli utenti, i quali li utilizzano in base alle loro esigenze:
+\begin{itemize}
+\item \textbf{Cittadini}: per misurare le performance e la trasparenza della Pubblica Amministrazione (es. dati di bilancio), o per informazione (es. orari mezzi pubblici, sportelli sanitari, ...).
+\item \textbf{Giornalisiti}: per cercare informazioni legati a interessi particolari (es. lugli della città statisticamente con maggior criminalità).
+\item \textbf{Imprese}: principalmente per analisi di mercato (es. esercizi sul territorio interessati a un prodotto) o per produzione di software che sfrutta l’informazione presente nei dati.
+\item \textbf{Pubblica amministrazione}: per migliorare le scelte decisionali (es. un tasso di malattia anomalo può essere correlato alla presenza di sostanze tossiche).
+\end{itemize}
+
+I dati del governo sono considerati aperti se sono resi pubblici in modo da rispettare gli \textbf{8 principi dell’Open Governament Data}:
+\begin{enumerate}
+\item \textbf{Completi}: Tutti i dati pubblici sono resi disponibili. Sono dati che non sono soggetti a limitazioni di privacy, di sicurezza o limitazioni di privilegio.
+\item \textbf{Primari}: I dati vengono raccolti alla fonte, con il più alto possibile livello di “gnaularità”, non in forme aggregate o modificate.
+\item \textbf{Tempestivi}: Dati sono resi disponibili in tempi necessari a preservarne il valore e devono essere mantenuti aggiornati.
+\item \textbf{Accessibili}: I dati sono disponibili al maggior numero di utenti per i più vari scopi.
+\item \textbf{Processabili}: I dati vengono adeguatamente strutturati per consentire l'elaborazione automatizzata.
+\item \textbf{Non discriminatori}: I dati sono disponibili a chiunque, senza necessità di registrazione.
+\item \textbf{Non proprietari}: I dati sono disponibili in un formato su cui nessun ente ha l’esclusivo controllo.
+\item \textbf{Liberi da licenza}:  I dati non sono soggetti a diritti d'autore, brevetti, marchi o segreto commerciale. Possono essere ammesse ragionevoli restrizioni di privacy, sicurezza e privilegio.
+\end{enumerate}
+In aggiunta agli 8 principi è inoltre importante rendere i dati:
+\begin{itemize}
+\item \textbf{Riutilizzabili}: Gli utenti devono essere messi in condizione di riutilizzare e integrare i dati, in modo da creare nuove risorse, applicazioni, programmi e servizi di pubblica utilità.
+\item \textbf{Ricercabili}: Facilmente identificabili in rete e facilmente indicizzabili dai motori di ricerca.
+\item \textbf{Permanenti}: Le caratteristiche sopra descritte devono caratterizzare i dati nel corso della loro intera vita sul Web.
+\end{itemize}
+
+I dati che son stati resi disponibili sono quindi di diverso formato e posso riguardare statistiche o censimenti, dati sensibili accorpati, dati georeferenziati o materiale multimediale.
 
 % scala 5 stelle
-% \subsection{Scala 5 stelle}
+\subsection{Scala 5 stelle}
 Tim Berners Lee in un suo testo del 2006, successivamente integrato nel 2010 \cite{BernersLee-LinkedData}, per incoraggiare i governi ed altri enti pubblici a rilasciare i dati in formato aperto, introdusse il concetto di \textbf{Dati a 5 stelle}. I concetti trattati nel articolo sono il \textit{Semantic Web} e i \textit{Linked Open Data}, ovvero un particolare tipo di dato strutturato semanticamente che viene pubblicato in rete con licenze di consultazione e d’uso poco restrittive (quali le licenze Creative Commons o le licenze nazionali) e che viene classificato secondo la scala a 5 stelle.\\
 
 \begin{figure}[htbp]
@@ -22,21 +48,21 @@ Tim Berners Lee in un suo testo del 2006, successivamente integrato nel 2010 \ci
 
 La scala a 5 stelle (fig. \ref{fig:5star-steps}) vuole misurare quanto i dati siano aperti e accessibili, assegnando le stelle secondo i seguenti criteri:
 
-\begin{table}[htbp]
+%\begin{table}[htbp]
 \begin{center}
 \begin{tabularx}{\textwidth}{r X}
 no star & \textbf{Web data} (in qualsiasi formato) senza nessuna licenza open\\
 \ding{72} & Il dato è disponibile sul Web (in qualsiasi formato) con una \textbf{licenza aperta}\\
-\ding{72} \ding{72} & Il dato è disponibile in un formato strutturato (ad esempio un Excel invece della scansione di una tabella) in modo che possa essere \textbf{riutilizzato}\\
+\ding{72} \ding{72} & Il dato è disponibile in un \textbf{rformato strutturato} (ad esempio un Excel invece della scansione di una tabella) in modo che possa essere iutilizzato\\
 \ding{72} \ding{72} \ding{72} & Il dato è in un \textbf{formato non proprietario} (ad esempio un CSV invece di un Excel)\\
 \ding{72} \ding{72} \ding{72} \ding{72} & Il dato utilizza gli \textbf{URI} per identificare gli oggetti, in modo che le persone possano far riferimento alle sue risorse e fare uso di RDF\\
 \ding{72} \ding{72} \ding{72} \ding{72} \ding{72} & Il \textbf{dato} è \textbf{collegato} ad altri dati per fornire un contesto\\
 \end{tabularx}
 \end{center}
-\end{table} 
+%\end{table} 
 
 % Obama, ...
-% \subsection{Open Data in ambito governativo}
+\subsection{Open Data in ambito governativo}
 Una grossa spinta all'affermazione del movimento Open Data in ambito governativo è stata data dal presidente degli Stati Uniti d'America \textbf{Barack Obama} con la promulgazione di una Direttiva sull'Open government nel dicembre 2009 \cite{Direttiva-OpenGovernament}:
 
 \begin{quoting}
@@ -47,7 +73,7 @@ Alla direttiva è stato dato seguito con la pubblicazione sul sito web \url{Data.
 Nel maggio 2013 Barack Obama ha firmato un nuovo ordine esecutivo \cite{WhiteHouse-OpenData} che obbliga tutte le agenzie governative ad adottare dati in formato aperto compatibili anche con le future infrastrutture informatiche che verranno adottate negli USA. Le pubbliche amministrazioni dovranno assicurarsi, dove è legalmente consentito, che i dati vengano rilasciati in modo tale da risultare facilmente accessibili e utilizzabili.\\
 
 % Italia
-% \subsection{Open Data in Italia}
+\subsection{Open Data in Italia}
 \textbf{In Italia} la spinta iniziale è stata data tra il 2007 e il 2010 dalla volontà di alcune amministrazioni locali che han voluto partecipare al progetto \href{http://www.openstreetmap.org/}{OpenStreetMap}, il quale crea e fornisce dati cartografici, come ad esempio mappe stradali, libere e gratuite a chiunque ne abbia bisogno.
 I comuni coinvolti, insieme a dei volontari, hanno condiviso i dati dei propri stradari sotto licenza aperta.
 

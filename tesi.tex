@@ -20,8 +20,11 @@
 \usepackage{indentfirst} %serve per avere l'indentazione all'inizio di capitoli, sezioni, etc.
 \usepackage{fancyhdr} %serve per impaginare bene la tesi
 %\usepackage{showkeys} %serve per mostrare le etichette, 										!!! va tolta per la versione definitiva;
-\usepackage{xcolor}
+\usepackage[usenames,dvipsnames]{xcolor}
 \newcommand\todo[1]{\textcolor{red}{#1}}
+\newcommand{\shellcmd}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{\textasciitilde{}\$} #1}\\}
+\newcommand{\shellcmdenv}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \textasciitilde{}\$} #1}\\}
+\newcommand{\shellcmdenvpath}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) /usr/lib/ckan/default/src/ckan\$} #1}\\}
 
 
 \pagestyle{plain} %stampa indice a piepagina
@@ -143,6 +146,7 @@ Matricola 703311}}
 %-------------------------------------------------------------------------
 
 \chapter{Sviluppo della soluzione} 
+	\input{5.Sviluppo-della-soluzione/0.Intro}
 	\input{5.Sviluppo-della-soluzione/1.Caricamento-automatico}
 	\input{5.Sviluppo-della-soluzione/2.Dizionario-dati}
 	\input{5.Sviluppo-della-soluzione/3.Blueprint}
