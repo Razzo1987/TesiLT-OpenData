@@ -1,3 +1,91 @@
-\section{Dizionario dati}
+%\section{Dizionario dati}
+\section{Catalogo dati}
 
 %trigger, query, il flusso
+Una volta che CKAN è popolato di dataset si è realizzato il catalogo dei dataset presenti.
+Per fare ciò è necessario recuperare le informazioni contenute nel database e quindi le tabelle di nostro interesse sono \texttt{package}, \texttt{resource} e \texttt{resource\_group}. La loro struttura è mostrata in figura \ref{fig:DB-design}:
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[scale=0.40]{img/BD-design2}
+   \caption{Design DataBase}
+   \label{fig:DB-design}
+\end{figure}
+
+Le informazioni di nostro interesse sono presenti in tabelle differenti, ed è quindi stato necessario fare un JOIN tra le 3 tabelle e successivamente selezionare solo i campi di nostro interesse. Inoltre si sono tradotte le intestazioni delle colonne in italiano e si è creato un nuovo campo (link) concatenando l’url base della piattaforma con le informazioni presenti nel database. Per realizzare tutto ciò si è utilizzato la seguente query:\\
+
+{\indent{\footnotesize \verb$SELECT "name" AS "nome", "description" AS "descrizione", "url" AS "url",$}}\\
+{\indent{\footnotesize \verb$ "format" AS "formato", "last_modified" AS "ultima modifica",$}}\\
+{\indent{\footnotesize \verb$ "author" AS "autore", "author_email" AS "email autore",$}}\\
+{\indent{\footnotesize \verb$ "maintainer" AS "manutentore", "maintainer_email" AS "email manutentore",$}}\\
+{\indent{\footnotesize \verb$ CONCAT('http://localhost/dataset/',url_name,'/resource/',url_id) AS "link"$}}\\
+{\indent{\footnotesize \verb$FROM	($}}\\
+{\indent{\footnotesize \verb$ SELECT	"name", "description", "url", "format", "last_modified",$}}\\
+{\indent{\footnotesize \verb$   "resource_group_id", "package_id", resource.id AS "url_id"$}}\\
+{\indent{\footnotesize \verb$ FROM	"resource_group"$}}\\
+{\indent{\footnotesize \verb$ JOIN	"resource"$}}\\
+{\indent{\footnotesize \verb$ ON	resource_group.id=resource.resource_group_id$}}\\
+{\indent{\footnotesize \verb$ WHERE	"name"<>'datacatalog.csv'$}}\\
+{\indent{\footnotesize \verb$ ) AS "resource"$}}\\
+{\indent{\footnotesize \verb$JOIN	($}}\\
+{\indent{\footnotesize \verb$ SELECT	"id", "author", "author_email", "maintainer", "maintainer_email",$}}\\
+{\indent{\footnotesize \verb$  "name" AS "url_name"$}}\\
+{\indent{\footnotesize \verb$ FROM	"package") AS "package"$}}\\
+{\indent{\footnotesize \verb$ON	resource.package_id=package.id$}}\\
+{\indent{\footnotesize \verb$ORDER BY "last_modified" DESC;$}}\\
+
+A questo punto si è voluto esportare il risultato della query in formato CSV (comma-separated values) e salvarlo in una posizione che fosse poi recuperabile attraverso dal web server. Si è scelto di salvarla nella root del web server. Ciò è possibile utilizzando il comando \textit{Copy} dopo aver acceduto al database  PostgreSQL:\\
+
+\shellcmd{sudo psql -h localhost -U ckanuser ckan\_default}
+{\indent\indent{\footnotesize \verb$\Copy ($}}\\
+\\
+\centerline{\texttt{...QUERY...}}\\
+\\
+{\indent\indent{\footnotesize \verb$) To '/usr/lib/ckan/default/src/ckan/ckan/public/datacatalog.csv'$}}\\
+{\indent\indent{\footnotesize \verb$With CSV HEADER$}}\\
+
+  
+Infine per automatizzare il processo di creazione del catalogo ad ogni nuovo inserimento di un dataset in CKAN si sono creati una funzione ed un trigger. La funzione non fa altro che eseguire l'esportazione della query in CSV nella posizione prestabilita:\\
+
+{\indent{\footnotesize \verb#CREATE FUNCTION create_datacatalog ()#}}\\
+{\indent{\footnotesize \verb#RETURNS trigger#}}\\
+{\indent{\footnotesize \verb#AS $create_datacatalog$#}}\\
+{\indent{\footnotesize \verb#BEGIN EXECUTE '#}}\\
+{\indent{\footnotesize \verb#Copy (SELECT "name" AS "nome", "description" AS "descrizione", "url" AS#}}\\
+{\indent{\footnotesize \verb# "url", "format" AS "formato", "last_modified" AS "ultima modifica",#}}\\
+{\indent{\footnotesize \verb# "author" AS "autore", "author_email" AS "email autore", "maintainer"#}}\\
+{\indent{\footnotesize \verb# AS "manutentore", "maintainer_email" AS "email manutentore" FROM (#}}\\
+{\indent{\footnotesize \verb# SELECT "name", "description", "url", "format", "last_modified",#}}\\
+{\indent{\footnotesize \verb# "resource_group_id", "package_id", resource.id AS "url_id"#}}\\
+{\indent{\footnotesize \verb# FROM "resource_group" JOIN "resource"#}}\\
+{\indent{\footnotesize \verb# ON resource_group.id=resource.resource_group_id) AS "resource"#}}\\
+{\indent{\footnotesize \verb# JOIN (SELECT "id", "author", "author_email", "maintainer",#}}\\
+{\indent{\footnotesize \verb# "maintainer_email", "name" AS "url_name" FROM "package") AS "package"#}}\\
+{\indent{\footnotesize \verb# ON resource.package_id=package.id ORDER BY "last_modified" DESC)#}}\\
+{\indent{\footnotesize \verb# To ''/usr/lib/ckan/default/src/ckan/ckan/public/datacatalog.csv''#}}\\
+{\indent{\footnotesize \verb# With CSV HEADER;#}}\\
+{\indent{\footnotesize \verb#';#}}\\
+{\indent{\footnotesize \verb#RETURN NEW;#}}\\
+{\indent{\footnotesize \verb#END;#}}\\
+{\indent{\footnotesize \verb#$create_datacatalog$#}}\\
+{\indent{\footnotesize \verb#LANGUAGE plpgsql;#}}\\
+\\
+Mentre invece il trigger si attiva ad ogni modifica della tabella \texttt{resource} e invoca la funzione:\\
+
+{\indent{\footnotesize \verb#CREATE TRIGGER datacatalog_update#}}\\
+{\indent{\footnotesize \verb#AFTER insert OR update#}}\\
+{\indent{\footnotesize \verb#ON resource#}}\\
+{\indent{\footnotesize \verb#FOR EACH ROW#}}\\
+{\indent{\footnotesize \verb#EXECUTE PROCEDURE create_datacatalog();#}}\\
+
+
+% assegnare 755 su /usr/lib/ckan/default/src/ckan/ckan/public/datacatalog.csv (e dare user ckan)
+
+%   modificare permessi ckanuser, ma se creassi i 2 così come superuser direttamente?
+% ckan@ckan-virtual-machine:~$ sudo -u postgres psql
+% psql (9.1.9)
+% Type "help" for help.
+
+% postgres=# alter role ckanuser SUPERUSER;
+% ALTER ROLE
+% postgres=# 

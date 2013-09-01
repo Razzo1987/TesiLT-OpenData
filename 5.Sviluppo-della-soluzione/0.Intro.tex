@@ -1,14 +1,14 @@
 Per prima cosa è stata installata su macchina virtuale il sistema operativo \href{http://releases.ubuntu.com/precise/ubuntu-12.04.2-desktop-amd64.iso}{\texttt{Ubuntu 12.04 a 64 bit}}, necessario per poter installare CKAN dai pacchetti.\\
-Da terminale sono stati installati i pacchetti richiesti e il pacchetto di CKAN versione 2.0:
+Da terminale sono stati installati i pacchetti richiesti e il pacchetto di CKAN versione 2.0:\\
 
 \shellcmd{sudo apt-get update}
 \shellcmd{sudo apt-get install -y nginx apache2 libapache2-mod-wsgi libpq5}
 \shellcmd{wget http://packaging.ckan.org/python-ckan-2.0\_amd64.deb}
-\shellcmd{sudo dpkg -i python-ckan-2.0\_amd64.deb}
-Successivamente sono stati installati anche PostgreSQL (database relazionale ad oggetti) e Solr (piattaforma di ricerca):
+\shellcmd{sudo dpkg -i python-ckan-2.0\_amd64.deb}\\
+Successivamente sono stati installati anche PostgreSQL (database relazionale ad oggetti) e Solr (piattaforma di ricerca):\\
 
-\shellcmd{sudo apt-get install -y postgresql solr-jetty}
-Si è scelto di utilizzare un unica istanza di CKAN in questa macchina virtuale e quindi un solo file di configurazione dello schema Solr. Si è quindi installato il Java Development Kit e modificato il file di configurazione Jetty:
+\shellcmd{sudo apt-get install -y postgresql solr-jetty}\\
+Si è scelto di utilizzare un unica istanza di CKAN in questa macchina virtuale e quindi un solo file di configurazione dello schema Solr. Si è quindi installato il Java Development Kit e modificato il file di configurazione Jetty:\\
 
 \shellcmd{sudo apt-get install solr-jetty openjdk-6-jdk}
 \shellcmd{sudo gedit /etc/default/jetty}
@@ -20,11 +20,11 @@ Si è scelto di utilizzare un unica istanza di CKAN in questa macchina virtuale e
 \shellcmd{sudo mv /etc/solr/conf/schema.xml /etc/solr/conf/schema.xml.bak}
 \shellcmd{sudo gedit /etc/default/jetty}
 \shellcmd{sudo ln -s /usr/lib/ckan/src/ckan/ckan/config/solr/schema-2.0.xml /etc
-/solr/conf/schema.xml}
-A questo punto è stato avviato il server Jetty:
+/solr/conf/schema.xml}\\
+A questo punto è stato avviato il server Jetty:\\
  
- \shellcmd{sudo service jetty start}
-Si è poi configurato il database PostgreSQL creando l’utente \texttt{ckanuser} a cui è stata data la proprietà del database \texttt{ckan\_default}. Successivamente si è modificato il valore di \texttt{sqlalchemy.url} nel file di configurazione \texttt{/etc/ckan/default/production.ini}. Infine si è inizializzato il database:
+ \shellcmd{sudo service jetty start}\\
+Si è poi configurato il database PostgreSQL creando l’utente \texttt{ckanuser} a cui è stata data la proprietà del database \texttt{ckan\_default}. Successivamente si è modificato il valore di \texttt{sqlalchemy.url} nel file di configurazione \texttt{/etc/ckan/default/production.ini}. Infine si è inizializzato il database:\\
 
 \shellcmd{sudo -u postgres createuser -S -D -R -P ckanuser}
 \shellcmd{sudo -u postgres createdb -O ckanuser ckan\_default -E utf-8}
@@ -32,14 +32,14 @@ Si è poi configurato il database PostgreSQL creando l’utente \texttt{ckanuser} a
 {\indent\indent\texttt{\footnotesize\textcolor{Orchid}{46:} sqlalchemy.url = postgresql://ckanuser:pass@localhost/ckan\_default}}\\
 \shellcmd{sudo ckan db init}
 
-
+\subsection{DataStore}
 
 Si è proseguiti con l’impostazione del \textbf{DataStore}, un componente che fornisce un database per l'archiviazione strutturata di dati insieme a delle potenti API accessibili dal WEB. Tutto ciò è perfettamente integrato nell'interfaccia web e nella gestione dei permessi di CKAN.\\
-Per fare ciò si è abilitato l’estensione, separatamente, nel file di configurazione:
+Per fare ciò si è abilitato l’estensione, separatamente, nel file di configurazione:\\
 
 \shellcmd{sudo gedit /etc/ckan/default/production.ini}
-{\indent\indent\texttt{\footnotesize\textcolor{Orchid}{84:} 84: ckan.plugins = datastore stats json\_preview recline\_preview}}\\
-Dopodiché si è creato l’utente \texttt{ckanreaduser} con sola lettura al database \texttt{datastore\_default} e si è assegnati i relativi permessi. Inoltre si è modificato il file di configurazione con gli opportuni valori:
+{\indent\indent\texttt{\footnotesize\textcolor{Orchid}{84:} 84: ckan.plugins = datastore stats json\_preview recline\_preview}}\\\\
+Dopodiché si è creato l’utente \texttt{ckanreaduser} con sola lettura al database \texttt{datastore\_default} e si è assegnati i relativi permessi. Inoltre si è modificato il file di configurazione con gli opportuni valori:\\
 
 \shellcmd{sudo -u postgres createuser -S -D -R -P -l ckanreaduser}
 \shellcmd{sudo -u postgres createdb -O ckanuser datastore\_default -E utf-8}
@@ -53,10 +53,11 @@ Dopodiché si è creato l’utente \texttt{ckanreaduser} con sola lettura al databas
 \shellcmdenvpath{paster datastore set-permissions postgres -c /etc/ckan/default/production.ini}
 
 
+\subsection{FileStore e File Uploads}
 
 Successivamente si sono impostati anche i componenti aggiuntivi \textbf{FileStore} e \textbf{File Uploads}, che contrariamente al FileStore, che fornisce un'archiviazione 'blob' di interi file senza alcun accesso o interrogazione a parti di essi, fanno in modo che CKAN si comporti come un database in cui i singoli elementi del dato sono accessibili e interrogabili.
 Se il file è memorizzato nel DataStore, si è in grado di accedere alle singole righe del dataset attraverso delle semplici web API, oltre ad essere in grado di effettuare interrogazioni sul suo intero contenuto.\\
-Si è creata la directory per salvataggio in locale e si è modificato il file di configurazione per impostarne il path. Successivamente si è assegnati i permessi a CKAN sulla directory e infine si è impostato l’url e riavviato il server web:
+Si è creata la directory per salvataggio in locale e si è modificato il file di configurazione per impostarne il path. Successivamente si è assegnati i permessi a CKAN sulla directory e infine si è impostato l’url e riavviato il server web:\\
 
 \shellcmd{sudo mkdir -p /var/lib/ckan/default}
 \shellcmd{sudo gedit /etc/ckan/default/production.ini}
@@ -68,20 +69,20 @@ Si è creata la directory per salvataggio in locale e si è modificato il file di 
 {\indent\indent\texttt{\footnotesize\textcolor{Orchid}{55:} ckan.site\_url = http://localhost}}\\
 \shellcmd{sudo service apache2 reload}
 
-
+\subsection{DataStorer}
 
 Infine si è installato il \textbf{DataStorer}, che permette aggiunge automaticamente al DataStore i dati che vengono inseriti in CKAN (linkati o caricati nel FileStore). Ciò viene fatto attraverso un attività di analisi automatica e successiva aggiunta nel DataStore da un processo che viene eseguito in modo asincrono.\\
-Si è quindi installato git, si è poi recuperato i sorgenti del pacchetto e installati i requisiti:
+Si è quindi installato git, si è poi recuperato i sorgenti del pacchetto e installati i requisiti:\\
 
 \shellcmd{sudo apt-get install git-core}
 \shellcmd{sudo -s}
-{\indent\texttt{\footnotesize\textcolor{NavyBlue}{\textasciitilde{}\#} . /usr/lib/ckan/default/bin/activate}}\\
-{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \textasciitilde{}\#} pip install -e git+git://github.com/okfn/ckanext-datastorer
+{\indent\texttt{\footnotesize\textcolor{NavyBlue}{\raisebox{0.5ex}{\texttildelow}\#} . /usr/lib/ckan/default/bin/activate}}\\
+{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \raisebox{0.5ex}{\texttildelow}\#} pip install -e git+git://github.com/okfn/ckanext-datastorer
 .git\#egg=ckanext-datastorer}}\\
-{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \textasciitilde{}\#} pip install -r /usr/lib/ckan/default/src/ckanext-datastorer
+{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \raisebox{0.5ex}{\texttildelow}\#} pip install -r /usr/lib/ckan/default/src/ckanext-datastorer
 /pip-requirements.txt}}\\
-{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \textasciitilde{}\#} exit}}\\
-Infine per abilitare la preview e le API sui singoli file bisogna processarli ad ogni loro inserimento, e quindi si è configurato un Cron Jobs ogni 2 minuti:
+{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \raisebox{0.5ex}{\texttildelow}\#} exit}}\\\\
+Infine per abilitare la preview e le API sui singoli file bisogna processarli ad ogni loro inserimento, e quindi si è configurato un Cron Jobs ogni 2 minuti:\\
 
 \shellcmd{/usr/lib/ckan/default/bin/paster --plugin=ckanext\_datastorer datastore
 \_upload -c /etc/ckan/default/production.ini}

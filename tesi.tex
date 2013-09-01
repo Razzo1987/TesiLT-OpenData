@@ -22,9 +22,16 @@
 %\usepackage{showkeys} %serve per mostrare le etichette, 										!!! va tolta per la versione definitiva;
 \usepackage[usenames,dvipsnames]{xcolor}
 \newcommand\todo[1]{\textcolor{red}{#1}}
-\newcommand{\shellcmd}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{\textasciitilde{}\$} #1}\\}
+
+\usepackage{textcomp}
+\newcommand{\shellcmd}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{\raisebox{0.5ex}{\texttildelow}\$} #1}\\}
+\newcommand{\shellcmdd}[2]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{#1 \$} #2}\\}
+
 \newcommand{\shellcmdenv}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) \textasciitilde{}\$} #1}\\}
 \newcommand{\shellcmdenvpath}[1]{\indent\texttt{\footnotesize\textcolor{NavyBlue}{(default) /usr/lib/ckan/default/src/ckan\$} #1}\\}
+
+%\usepackage{listings} %per list are codices
+
 
 
 \pagestyle{plain} %stampa indice a piepagina
