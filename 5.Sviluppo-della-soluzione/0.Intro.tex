@@ -1,5 +1,6 @@
-Per prima cosa è stata installata su macchina virtuale il sistema operativo \href{http://releases.ubuntu.com/precise/ubuntu-12.04.2-desktop-amd64.iso}{\texttt{Ubuntu 12.04 a 64 bit}}, necessario per poter installare CKAN dai pacchetti.\\
-Da terminale sono stati installati i pacchetti richiesti e il pacchetto di CKAN versione 2.0:\\
+%archivio, binari da repository
+Per prima cosa è stata installata su macchina virtuale il sistema operativo \href{http://releases.ubuntu.com/precise/ubuntu-12.04.2-desktop-amd64.iso}{\texttt{Ubuntu 12.04 a 64 bit}}, necessario per poter installare CKAN precompilato.\\
+Da terminale sono state installate le dipendenze richieste e il pacchetto di CKAN versione 2.0:\\
 
 \shellcmd{sudo apt-get update}
 \shellcmd{sudo apt-get install -y nginx apache2 libapache2-mod-wsgi libpq5}
@@ -8,7 +9,7 @@ Da terminale sono stati installati i pacchetti richiesti e il pacchetto di CKAN 
 Successivamente sono stati installati anche PostgreSQL (database relazionale ad oggetti) e Solr (piattaforma di ricerca):\\
 
 \shellcmd{sudo apt-get install -y postgresql solr-jetty}\\
-Si è scelto di utilizzare un unica istanza di CKAN in questa macchina virtuale e quindi un solo file di configurazione dello schema Solr. Si è quindi installato il Java Development Kit e modificato il file di configurazione Jetty:\\
+Si è scelto di utilizzare un unica istanza di CKAN e quindi un solo file di configurazione dello schema Solr. Di conseguenza si è installato il Java Development Kit e modificato il file di configurazione Jetty:\\
 
 \shellcmd{sudo apt-get install solr-jetty openjdk-6-jdk}
 \shellcmd{sudo gedit /etc/default/jetty}
@@ -32,7 +33,8 @@ Si è poi configurato il database PostgreSQL creando l’utente \texttt{ckanuser} a
 {\indent\indent\texttt{\footnotesize\textcolor{Orchid}{46:} sqlalchemy.url = postgresql://ckanuser:pass@localhost/ckan\_default}}\\
 \shellcmd{sudo ckan db init}
 
-\subsection{DataStore}
+%\subsection{DataStore}
+\subsection{Preview e Web API}
 
 Si è proseguiti con l’impostazione del \textbf{DataStore}, un componente che fornisce un database per l'archiviazione strutturata di dati insieme a delle potenti API accessibili dal WEB. Tutto ciò è perfettamente integrato nell'interfaccia web e nella gestione dei permessi di CKAN.\\
 Per fare ciò si è abilitato l’estensione, separatamente, nel file di configurazione:\\
@@ -53,9 +55,10 @@ Dopodiché si è creato l’utente \texttt{ckanreaduser} con sola lettura al databas
 \shellcmdenvpath{paster datastore set-permissions postgres -c /etc/ckan/default/production.ini}
 
 
-\subsection{FileStore e File Uploads}
+%\subsection{FileStore e File Uploads}
+\subsection{Archiviazione dei file}
 
-Successivamente si sono impostati anche i componenti aggiuntivi \textbf{FileStore} e \textbf{File Uploads}, che contrariamente al FileStore, che fornisce un'archiviazione 'blob' di interi file senza alcun accesso o interrogazione a parti di essi, fanno in modo che CKAN si comporti come un database in cui i singoli elementi del dato sono accessibili e interrogabili.
+Successivamente si sono impostati anche i componenti aggiuntivi \textbf{FileStore} e \textbf{File Uploads}, che contrariamente al FileStore, che fornisce un'archiviazione “blob” di interi file senza alcun accesso o interrogazione a parti di essi, fanno in modo che CKAN si comporti come un database in cui i singoli elementi del dato sono accessibili e interrogabili.
 Se il file è memorizzato nel DataStore, si è in grado di accedere alle singole righe del dataset attraverso delle semplici web API, oltre ad essere in grado di effettuare interrogazioni sul suo intero contenuto.\\
 Si è creata la directory per salvataggio in locale e si è modificato il file di configurazione per impostarne il path. Successivamente si è assegnati i permessi a CKAN sulla directory e infine si è impostato l’url e riavviato il server web:\\
 
@@ -69,7 +72,8 @@ Si è creata la directory per salvataggio in locale e si è modificato il file di 
 {\indent\indent\texttt{\footnotesize\textcolor{Orchid}{55:} ckan.site\_url = http://localhost}}\\
 \shellcmd{sudo service apache2 reload}
 
-\subsection{DataStorer}
+%\subsection{DataStorer}
+\subsection{Automazione analisi file caricati}
 
 Infine si è installato il \textbf{DataStorer}, che permette aggiunge automaticamente al DataStore i dati che vengono inseriti in CKAN (linkati o caricati nel FileStore). Ciò viene fatto attraverso un attività di analisi automatica e successiva aggiunta nel DataStore da un processo che viene eseguito in modo asincrono.\\
 Si è quindi installato git, si è poi recuperato i sorgenti del pacchetto e installati i requisiti:\\
