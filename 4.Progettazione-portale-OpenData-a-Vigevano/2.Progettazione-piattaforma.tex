@@ -1,13 +1,56 @@
 \section{Progettazione piattaforma}
 %a partire dal git in automatico su ckan con metadati
 %\begin{quoting}
-Con delibera 14 del 19/01/2012 il Comune di Vigevano, nell'ambito del Progetto InnoVi, cofinanziato dalla regione, ha adottato, in riuso dal Comune di Milano, la piattaforma \textbf{GIT}, un integratore di banche dati interne ed esterne all'ente e relativa cartografia, con il project management di Ancitel Lombardia ed il supporto tecnico della società HiWeb Srl della Regione Umbria che ha contribuito a far nascere e crescere tale sistema.
-%[...]
-Il sistema GIT è un ricco contenitore di informazioni alfanumeriche e grafiche correlate, periodicamente aggiornate, e che, per questo, è un candidato naturale ad alimentare dei dataset di dati da rendere disponibili con licenze open, opportunamente filtrati ed aggregati allo scopo di tutelare la privacy.
-\cite{CittaVigevano-GCn104}
-%\end{quoting}
-Vogliamo quindi una piattaforma che permetta di integrare le informazioni presenti sulla piattaforma GIT con il portale Open Data che verrà realizzato.
-Per fare ciò sono percorribili tre strade distinte:
+Con delibera 14 del 19/01/2012 il Comune di Vigevano, nell'ambito del Progetto InnoVi, cofinanziato dalla regione, ha adottato, in riuso dal Comune di Milano, la piattaforma \textbf{GIT} \cite{CittaVigevano-GCn104}.
+
+La piattaforma GIT, di proprietà della Pubblica Amministrazione italiana realizzato attraverso un progetto (GIT “Gestione Intersettoriale del Territorio”) del programma ELISA del Dipartimento Affari Regionali realizzato da Comuni, implementata al fine di integrare, relazionare e rendere interoperabili i dati in possesso di  un ente per il territorio di competenza, costituisce la dorsale sulla quale i dati possono transitare al fine di acquisire un maggior livello di accuratezza, attendibilità e completezza.
+
+Pur preservando la peculiarità di poter rendere disponibili i dati grezzi, rispettando l’indicazione “ROW DATA NOW”, il processo di pubblicazione può essere realizzato in modo progressivo attraverso il trattamento dell’informazione per renderla più chiara, relazionata e dunque economicamente più vantaggiosa per il fruitore finale.
+
+Gli Elementi conoscitivi del territorio sono stati catalogati per la piattaforma in tematismi:
+
+\begin{itemize}
+\item         Soggetti che si muovono sul territorio e che agiscono con interazione diretta o intermediata;
+
+\item     Oggetti presenti sul territorio che costituiscono strumenti dell’azione dei Soggetti, Patrimonio economico rappresentativo del valore stesso dei luoghi e contenitori in grado di generare lavoro per la loro conservazione e manutenzione;
+
+\item         Ambiente che caratterizza il territorio amministrato e costituisce un importante riferimento per le regole del vivere civile per la valorizzazione del patrimonio naturale e di manufatti da gestire, valorizzare e preservare;
+
+\item         toponomastica e geolocalizzazione dei luoghi degli oggetti, e delle persone che rappresenta la mappatura e il riferimento per la ricerca, la misurazione e la relazione delle informazioni territoriali di interesse.
+\end{itemize}
+
+Attraverso queste “chiavi” di conoscenza primarie del territorio, i dati delle singole fonti vengono assunti come elementi descrittori, analizzati, diagnosticati e  resi disponibili in modo integrato per la consultazione o per l’utilizzo attraverso canali consultazione puntuale, di estrazione e pubblicazione massiva.
+
+La piattaforma GIT è costituita da componenti software realizzati per assicurare determinate funzioni di trattamento delle informazioni, oltre che da servizi di navigazione trasversale fra le fonti e da servizi verticali specialistici, anche cartografici.
+
+Ma sono le funzioni di trattamento delle fonti dati e di orchestrazione, implementate dal componente Controller a poter dare un valore aggiunto al processo di apertura dei dati, si descrivo no ora brevemente le peculiarità e le funzioni principali:
+
+\begin{itemize}
+\item   sistema di reperimento e acquisizione dell’informazione attraverso varie modalità e protocolli. I sistemi operazionali e/o gli utenti possono depositare su repository relazionali / ftp / file system i loro dati  e la piattaforma si preoccuperà di importare tali dati con periodicità stabilità. Oppure possono essere implementate e configurate delle sonde applicative che controllano lo stato di variazione aggiornamento di una determinata fonte dati (relazionale e non) al fine di importare le variazioni nel sistema GIT.
+
+\item   Catalogo configurabile e programmabile tramite API di diagnostiche sulle informazioni oggetto di importazione, Le diagnostiche sono uno strumento da asservire al processo di bonifica di un dato per valutarne il grado di qualità e definire dunque eventuali step successivi. Le diagnostiche sono di due tipi: controllo e confronto; il sistema valuta la qualità del dato  in termini di obbligatorietà di attributi informativi, formati e codifiche (controllo) e ne valuta inoltre le anomalie rispetto ad altre fonti informative (confronto). Un esempio di questa seconda tipologia di diagnostica è il “controllo del numero di famiglie in un immobile rispetto al numero di unità abitative e al numero di contratti di fornitura della rete elettrica o idrica”. Le diagnostiche di confronto, utilizzate in GIT al fine di indagine e ricerca di “anomalie”, può essere sfruttata nella generazione di relazioni interne di tipo appunto semantico.
+
+\item   Sistema di correlazione delle fonti dati basato sui tematismi Soggetto, Via, Civico, Oggetto Territoriale e Fabbricato. Attraverso un sistema di metadati vengono caratterizzati gli attributi di un archivio in modo da poter attribuire ad ognuno una categoria e un tipo. Per esempio vengono classificati tutti gli archivi che si riferiscono ad un immobile e all’interno di ogni archivio vengono identificati gli attributi territoriali (via, civico, coordinate catastali ecc.). Attraverso algoritmi standard di ricerca sql, attraverso l’utilizzo di algoritmi dinamici per la ricerca delle similarità e di algoritmy fuzzy ogni record di una fonte informativa viene correlato ad altri di altre fonti con un determinato grado di attendibilità. Queste correlazioni sono alla base di alcuni algoritmi diagnostici per la ricerca dell’evasione fiscale e alla base del sistema di navigazione dinamico GIT.
+
+\item   Trattamento di dati cartografici, anche all’interno della correlazione delle informazioni, oltre che negli algoritmi diagnostici al fine di collegare il maggior numero di informazioni alfanumeriche ad un riferimento geografico. La presenza in GIT del catasto terreni / fabbricati, della toponomastica e di altre fonti dati (concessioni, tributi) contenenti riferimenti geografici certi ha permesso di implementare algoritmi deduttivi che attribuiscono gli attributi di localizzazione a fonti dati altrimenti sprovviste di questa informazione. Questo permette potenzialmente di visualizzare graficamente all’interno di un WebGIS quasi tutte le fonti dati. 
+
+\item   Presenza di un catalogo dei dati cartografici dinamico in grado di dare la possibilità di ingessare e tipizzare qualsiasi fonte dati spaziale.
+\end{itemize}
+
+
+Il sistema GIT è quindi un ricco contenitore di informazioni alfanumeriche e grafiche correlate, periodicamente aggiornate, e che, per questo, è un candidato naturale ad alimentare dei dataset di dati da rendere disponibili con licenze open, opportunamente filtrati ed aggregati allo scopo di tutelare la privacy.
+
+
+Di conseguenza si vuole realizzare una piattaforma che permetta di integrare le informazioni presenti sulla piattaforma GIT con il portale Open Data che verrà realizzato.
+Per fare ciò sono percorribili (come mostrato in figura \ref{fig:git-ckan}) tre strade distinte:
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[scale=0.3]{img/git-ckan} % requires the graphicx package
+   \caption{Possibili soluzioni di integrazione tra GIT e il portale}
+   \label{fig:git-ckan}
+\end{figure}
+
 \begin{enumerate}
 \item Effettuare periodicamente delle esportazioni dei dati da GIT per caricarle sulla piattaforma.
 \item Effettuare l'aggiornamento dei dati sulla piattaforma ogni volta che vengono aggiornati su GIT in automatico.
@@ -18,8 +61,8 @@ La terza soluzione presenta dei problemi di sicurezza, perché per realizzarla bi
 
 La prima soluzione può essere applicata nei casi in cui le informazioni hanno una frequenza di aggiornamento rada, ma diventa impraticabile nel momento in cui i dati vengo aggiornati con una frequenza rilevante, in quando bisogna fare manualmente un aggiornamento ogni volta.
 
-La soluzione vincente risulta quindi essere la seconda, essa comporta un controllo degli eventi sulla piattaforma GIT e l'esistenza di un sistema di aggiornamento automatizzato (senza intervento umano) sulla piattaforma Open Data.
-Nell'ottica del riutilizzo del software, questa componente deve essere in grandi di controllare eventuali aggiornamenti di GIT, di anonimizzare i dati e di inserirli nella piattaforma attraverso API.\\
+La soluzione vincente risulta quindi essere la seconda. Questa comporta un controllo degli eventi sulla piattaforma GIT e l'esistenza di un sistema di aggiornamento automatizzato (senza intervento umano) sulla piattaforma Open Data.
+Nell'ottica del riutilizzo del software, questa componente deve essere in grado di controllare eventuali aggiornamenti di GIT, di anonimizzare i dati e di inserirli nella piattaforma attraverso API.\\
 
 %Catalogo e dizionario
 Al fine di agevolare l'integrazione tra la piattaforma e applicazioni di terze parti si vuole rendere disponibile un \textbf{catalogo} contenente tutti i dataset e i relativi metadati. Con Metadati si intendono le informazioni riguardanti il singolo dataset quali il suo nome, la sua descrizione, il formato del file, la sua data di ultima modifica, il link a cui raggiungere la risorsa, ...
@@ -28,7 +71,7 @@ Si vuole inoltre rendere disponibile per ogni dataset il dizionario dei dati in 
 
 In questo modo è possibile interrogare il dataset sapendo a priori il tipo di dato che è contenuto in esso.\\
 
-%Triggher e workflow
+%Trigger e workflow
 Si è scelto di utilizzare una piattaforma open source in accordo con il Comune di Vigevano e di conseguenza CKAN è stata la piattaforma sulla quale si è scelto di implementare i requisiti.
 Al fine di rendere compatibile le modifiche apportate alla piattaforma CKAN tra le varie versioni della stessa si è deciso di analizzarlo come una “scatola nera”, senza mettere mano al codice sorgente di CKAN.
 
@@ -39,4 +82,4 @@ Al fine di rendere compatibile le modifiche apportate alla piattaforma CKAN tra 
    \label{fig:workflow}
 \end{figure}
 
-La progettazione del catalogo è quindi stata fatta come mostrato in fig. \ref{fig:workflow} inserendo un triggher (una procedura che viene eseguita in maniera automatica in coincidenza di un determinato evento) che ad ogni aggiornamento nel database della tabella contenente i dataset venga fatta una query che restituisce il catalogo (facendo un join tra diverse tabelle) e la esporti in formato CSV. Il file contenete il catalogo è esso stesso parte integrante della piattaforma essendo a sua volta un dataset.
+La progettazione del catalogo è quindi stata fatta come mostrato in fig. \ref{fig:workflow} inserendo un trigger (una procedura che viene eseguita in maniera automatica in coincidenza di un determinato evento) che ad ogni aggiornamento nel database della tabella contenente i dataset corrisponda l’esecuzione di una query che restituisce il catalogo (facendo un join tra diverse tabelle) e la esporti in formato CSV. Il file contenente il catalogo è esso stesso parte integrante della piattaforma essendo a sua volta un dataset.

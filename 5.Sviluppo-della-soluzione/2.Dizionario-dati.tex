@@ -12,29 +12,29 @@ Per fare ciò è stato necessario recuperare le informazioni contenute nel databas
    \label{fig:DB-design}
 \end{figure}
 
-Le informazioni sono presenti in tabelle differenti, ed è quindi stato necessario fare un JOIN tra le 3 tabelle e successivamente selezionare solo i campi di nostro interesse. Inoltre si sono tradotte le intestazioni delle colonne in italiano e si è creato un nuovo campo (link) concatenando l’url base della piattaforma con le informazioni presenti nel database. Per realizzare tutto ciò si è utilizzato la seguente query:\\
+Le informazioni sono presenti in tabelle differenti, ed è quindi stato necessario fare un JOIN tra le 3 tabelle e successivamente selezionare solo i campi di nostro interesse. Inoltre si sono tradotte le intestazioni delle colonne in italiano e si è creato un nuovo campo (link) concatenando l’url base della piattaforma con le informazioni presenti nel database.
+%Per realizzare tutto ciò si è utilizzato la seguente query:\\
+%{\indent{\footnotesize \verb$SELECT "name" AS "nome", "description" AS "descrizione", "url" AS "url",$}}\\
+%{\indent{\footnotesize \verb$ "format" AS "formato", "last_modified" AS "ultima modifica",$}}\\
+%{\indent{\footnotesize \verb$ "author" AS "autore", "author_email" AS "email autore",$}}\\
+%{\indent{\footnotesize \verb$ "maintainer" AS "manutentore", "maintainer_email" AS "email manutentore",$}}\\
+%{\indent{\footnotesize \verb$ CONCAT('http://localhost/dataset/',url_name,'/resource/',url_id) AS "link"$}}\\
+%{\indent{\footnotesize \verb$FROM	($}}\\
+%{\indent{\footnotesize \verb$ SELECT	"name", "description", "url", "format", "last_modified",$}}\\
+%{\indent{\footnotesize \verb$   "resource_group_id", "package_id", resource.id AS "url_id"$}}\\
+%{\indent{\footnotesize \verb$ FROM	"resource_group"$}}\\
+%{\indent{\footnotesize \verb$ JOIN	"resource"$}}\\
+%{\indent{\footnotesize \verb$ ON	resource_group.id=resource.resource_group_id$}}\\
+%{\indent{\footnotesize \verb$ WHERE	"name"<>'datacatalog.csv'$}}\\
+%{\indent{\footnotesize \verb$ ) AS "resource"$}}\\
+%{\indent{\footnotesize \verb$JOIN	($}}\\
+%{\indent{\footnotesize \verb$ SELECT	"id", "author", "author_email", "maintainer", "maintainer_email",$}}\\
+%{\indent{\footnotesize \verb$  "name" AS "url_name"$}}\\
+%{\indent{\footnotesize \verb$ FROM	"package") AS "package"$}}\\
+%{\indent{\footnotesize \verb$ON	resource.package_id=package.id$}}\\
+%{\indent{\footnotesize \verb$ORDER BY "last_modified" DESC;$}}\\
 
-{\indent{\footnotesize \verb$SELECT "name" AS "nome", "description" AS "descrizione", "url" AS "url",$}}\\
-{\indent{\footnotesize \verb$ "format" AS "formato", "last_modified" AS "ultima modifica",$}}\\
-{\indent{\footnotesize \verb$ "author" AS "autore", "author_email" AS "email autore",$}}\\
-{\indent{\footnotesize \verb$ "maintainer" AS "manutentore", "maintainer_email" AS "email manutentore",$}}\\
-{\indent{\footnotesize \verb$ CONCAT('http://localhost/dataset/',url_name,'/resource/',url_id) AS "link"$}}\\
-{\indent{\footnotesize \verb$FROM	($}}\\
-{\indent{\footnotesize \verb$ SELECT	"name", "description", "url", "format", "last_modified",$}}\\
-{\indent{\footnotesize \verb$   "resource_group_id", "package_id", resource.id AS "url_id"$}}\\
-{\indent{\footnotesize \verb$ FROM	"resource_group"$}}\\
-{\indent{\footnotesize \verb$ JOIN	"resource"$}}\\
-{\indent{\footnotesize \verb$ ON	resource_group.id=resource.resource_group_id$}}\\
-{\indent{\footnotesize \verb$ WHERE	"name"<>'datacatalog.csv'$}}\\
-{\indent{\footnotesize \verb$ ) AS "resource"$}}\\
-{\indent{\footnotesize \verb$JOIN	($}}\\
-{\indent{\footnotesize \verb$ SELECT	"id", "author", "author_email", "maintainer", "maintainer_email",$}}\\
-{\indent{\footnotesize \verb$  "name" AS "url_name"$}}\\
-{\indent{\footnotesize \verb$ FROM	"package") AS "package"$}}\\
-{\indent{\footnotesize \verb$ON	resource.package_id=package.id$}}\\
-{\indent{\footnotesize \verb$ORDER BY "last_modified" DESC;$}}\\
-
-A questo punto si è voluto esportare il risultato della query in un file in formato CSV (comma-separated values) e salvarlo in una posizione che fosse poi recuperabile dal web server, di conseguenza si è scelto di salvarlo nella sua root. Ciò è possibile utilizzando il comando \textit{Copy} dopo aver acceduto al database PostgreSQL:\\
+Ciò è stato realizzato attraverso una query, il cui risultato è stato esportato in un file in formato CSV (comma-separated values). Si è voluto salvare il file in una posizione che fosse poi recuperabile dal web server, di conseguenza si è scelto di salvarlo nella sua root. Ciò è possibile utilizzando il comando \textit{Copy} dopo aver acceduto al database PostgreSQL:\\
 
 \shellcmd{sudo psql -h localhost -U ckanuser ckan\_default}
 {\indent\indent{\footnotesize \verb$\Copy ($}}\\

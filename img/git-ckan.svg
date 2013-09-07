@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1280px" height="800px" viewBox="0 0 1280 800" enable-background="new 0 0 1280 800" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#FFFFFF" stroke="#0033FF" stroke-width="3" stroke-miterlimit="10" d="M261.5,505.5c0,6.627-5.373,12-12,12h-190
+			c-6.627,0-12-5.373-12-12v-102c0-6.627,5.373-12,12-12h190c6.627,0,12,5.373,12,12V505.5z"/>
+		<image overflow="visible" width="192" height="86" xlink:href="sorgenti/git.gif"  transform="matrix(1 0 0 1 57.9473 411.8418)">
+		</image>
+	</g>
+	
+		<image overflow="visible" width="400" height="400" xlink:href="sorgenti/firewall.png"  transform="matrix(-0.2239 0 0 0.2239 652.7891 690.8418)">
+	</image>
+</g>
+<image overflow="visible" width="26" height="26" xlink:href="sorgenti/timer.png"  transform="matrix(1.4737 0 0 1.4737 94.1113 341.5322)">
+</image>
+<image overflow="visible" width="512" height="512" xlink:href="sorgenti/human.png"  transform="matrix(0.0697 0 0 0.0697 160.3652 343.6284)">
+</image>
+<image overflow="visible" width="512" height="512" xlink:href="sorgenti/gears.png"  transform="matrix(0.091 0 0 0.091 268.5259 398.5767)">
+</image>
+<image overflow="visible" width="256" height="256" xlink:href="sorgenti/Web_Database.png"  transform="matrix(0.7973 0 0 0.7973 967.582 335.3413)">
+</image>
+<path fill="none" stroke="#0099FF" stroke-width="5" stroke-miterlimit="10" d="M146.684,388.895
+	c0-121.688,204.801-220.157,457.895-220.157"/>
+<g>
+	<g>
+		<path fill="none" stroke="#0099FF" stroke-width="5" stroke-miterlimit="10" d="M1061.53,314.641
+			c-37.02-82.673-227.21-145.535-456.636-145.535"/>
+		<g>
+			<path fill="#0099FF" d="M1068.053,344.105c1.789-15.039,6.394-34.274,13.087-47.124l-21.097,13.941l-25.129-2.782
+				C1046.731,316.522,1059.604,331.538,1068.053,344.105z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<path fill="none" stroke="#336600" stroke-width="5" stroke-miterlimit="10" d="M1030.895,525.737
+			c0,95.463-152.275,173.601-346.142,181.004"/>
+		<g>
+			<path fill="#336600" d="M654.579,707.315c14.079-5.583,31.492-14.961,42.198-24.723l-8.071,23.965l9.127,23.577
+				C686.704,720.858,668.892,712.263,654.579,707.315z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<path fill="none" stroke="#336600" stroke-width="5" stroke-miterlimit="10" d="M152.831,553.544
+			c36.093,85.792,226.803,151.141,457.011,151.141"/>
+		<g>
+			<path fill="#336600" d="M146.684,524c-2.004,15.012-6.882,34.179-13.758,46.932l21.294-13.638l25.086,3.14
+				C167.609,551.885,154.953,536.687,146.684,524z"/>
+		</g>
+	</g>
+</g>
+<path fill="none" stroke="#CC3300" stroke-width="5" stroke-miterlimit="10" d="M1088.474,532.474
+	c0,117.732-194.066,213-433.895,213"/>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#CC3300" stroke-width="5" stroke-miterlimit="10" x1="654.579" y1="745.474" x2="741.068" y2="766.781"/>
+		<g>
+			<path fill="#CC3300" d="M770.368,774c-15.047,1.719-34.304,6.233-47.185,12.865l14.04-21.031l-2.664-25.142
+				C742.885,752.55,757.84,765.492,770.368,774z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#0099FF" stroke-width="5" stroke-miterlimit="10" x1="184" y1="539.5" x2="980" y2="539.5"/>
+		<g>
+			<path fill="#0099FF" d="M1009.842,539.5c-14.199,5.269-31.816,14.258-42.736,23.779l8.601-23.779l-8.601-23.774
+				C978.025,525.247,995.643,534.236,1009.842,539.5z"/>
+		</g>
+	</g>
+</g>
+<image overflow="visible" width="48" height="48" xlink:href="sorgenti/1378583639_table_48.png"  transform="matrix(4.7401 0 0 3.7007 1019.0508 2.6309)">
+</image>
+<image overflow="visible" width="48" height="48" xlink:href="sorgenti/1378583650_table_green_48.png"  transform="matrix(4.8958 0 0 3.7555 32.0039 0)">
+</image>
+<text transform="matrix(1 0 0 1 56.2104 58.686)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12">Nome</tspan><tspan x="30.503" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="2">	</tspan><tspan x="36" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="33">	</tspan><tspan x="72" y="0" font-family="'MyriadPro-Regular'" font-size="12">Reddito</tspan><tspan x="111.372" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="30">	</tspan><tspan x="144" y="0" font-family="'MyriadPro-Regular'" font-size="12">Indirizzo</tspan></text>
+<text transform="matrix(1 0 0 1 1042.8945 59.4224)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="12">Iniziali</tspan><tspan x="31.704" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="1">	</tspan><tspan x="36" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="33">	</tspan><tspan x="72" y="0" font-family="'MyriadPro-Regular'" font-size="12">Reddito</tspan><tspan x="111.372" y="0" font-family="'MyriadPro-Regular'" font-size="12" letter-spacing="30">	</tspan><tspan x="144" y="0" font-family="'MyriadPro-Regular'" font-size="12">Zona</tspan></text>
+<line fill="none" stroke="#FFCC00" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="12" x1="264" y1="35.5" x2="1026" y2="35.5"/>
+<image overflow="visible" width="400" height="400" xlink:href="sorgenti/1378582170_filter_data.png"  transform="matrix(0.2338 0 0 0.2338 569.5791 13)">
+</image>
+<g>
+	<g>
+		<line fill="none" stroke="#0099FF" stroke-width="5" stroke-miterlimit="10" x1="264" y1="453.5" x2="959" y2="453.5"/>
+		<g>
+			<path fill="#0099FF" d="M988.789,453.5c-14.199,5.269-31.816,14.258-42.736,23.779l8.601-23.779l-8.601-23.774
+				C956.973,439.247,974.59,448.236,988.789,453.5z"/>
+		</g>
+	</g>
+</g>
+<image overflow="visible" width="400" height="400" xlink:href="sorgenti/1378582170_filter_data.png"  transform="matrix(0.1125 0 0 0.1125 592.6846 147.7891)">
+</image>
+<image overflow="visible" width="400" height="400" xlink:href="sorgenti/1378582170_filter_data.png"  transform="matrix(0.1125 0 0 0.1125 593 428.9473)">
+</image>
+<text transform="matrix(1 0 0 1 635.0015 200.3149)" font-family="'Impact'" font-size="24">1.</text>
+<text transform="matrix(1 0 0 1 634.7383 483.7363)" font-family="'Impact'" font-size="24">2.</text>
+<text transform="matrix(1 0 0 1 637.8433 674.5254)" font-family="'Impact'" font-size="24">3.</text>
+</svg>
