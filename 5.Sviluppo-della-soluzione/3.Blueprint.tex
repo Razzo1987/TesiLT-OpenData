@@ -1,1 +1,9 @@
 \section{Blueprint}
+
+Per realizzare l’integrazione tra la piattaforma CKAN realizzata per il Comune di Vigevano e la piattaforma Socrata utilizzata da Regione Lombardia si è pensato di importare il catalogo della prima nella seconda.\\
+
+Dalla documentazione presente su Socrata si è ipotizzato di utilizzare quanto descritto alla pagina \url{http://dev.socrata.com/publishers/importing}.
+
+L’importazione dei dati viene eseguita come un processo in due fasi. In primo luogo, il file di dati in sé viene caricato tramite l'API, e viene poi analizzato per determinare il tipo di dati che esso contiene. I risultati di tale analisi vengono restituiti, dopodiché è possibile apportare modifiche al modo in cui l'importatore interpreta i dati. A questo punto si invia il progetto di importazione risultante, e a questo punto inizia il processo di importazione vero e proprio.
+
+Al momento questa soluzione non è stata ancora sperimentata, mancando i tempi tecnici di realizzazione.

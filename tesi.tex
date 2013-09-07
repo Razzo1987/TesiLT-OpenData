@@ -34,6 +34,14 @@
 
 
 
+\usepackage{tikz} %pacchetto per il comando successivo
+\newcommand*\mycirc[1]{ %per mettere i numeri cerchiati
+ \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+
+
 \pagestyle{plain} %stampa indice a piepagina
 
 \author{Racchetti Luca\\703311}
