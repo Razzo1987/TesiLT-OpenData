@@ -1,10 +1,38 @@
 \chapter{Conclusioni e sviluppi futuri}
+\section{Conclusioni}
+Lo stage ha raggiunto i suoi obiettivi solo in parte, è infatti stata realizzata la piattaforma secondo i requisiti richiesti e caricati alcuni esempi di dataset, ma non si è riusciti a realizzare l’integrazione a monte con la piattaforma GIT e quella a valle con il portale di Regione Lombardia.\\
 
-%la tesi ha raggiunto i suoi obiettivi....
-%sviluppi futuri
-%integrazione a monte con git
-%integrazione a valle con regione lombardia
-%caricamento dataset
+Il processo di \textbf{installazione} per il pacchetto base di CKAN risulta essere molto facile nel caso si scelga di utilizzare il sistema operativo consigliato nella documentazione ufficiale (Ubuntu 12.04 a 64 bit), ma si iniziano a incontrare le prime difficoltà già nel momento in cui si vuole aggiungere i componenti DataStore, FileStore File Uploads e DataStorer, i quali però risultano essenziali al fine di realizzare una piattaforma realmente utilizzabile.
+
+L’installazione di CKAN su altri sistemi operativi (ad esempio CentOS: \todo{o era Red Hat ... NON MI RICORDO SE E’ QUESTO CE VOLEVA USARE VIGEVANO!!!}) è invece molto complicata in quanto va effettuata utilizzando i file sorgenti presenti su \href{https://github.com/okfn/ckan}{\texttt{github}} per i quali è richiesto un livello di conoscenza dell’architettura della piattaforma maggiore, oltre che delle buone conoscenze dell’ambiente UNIX, del database PostgreSQL, di Python e di virtualenv.
+
+Inoltre la documentazione su CKAN presente online è molto scarsa e la fonte ufficiale \href{http://docs.ckan.org}{\texttt{docs.ckan.org}} è spesso non concorde con la versione distribuita o presenta errori nei comandi shell da eseguire.\\
+
+Il processo di \textbf{manutenzione} di CKAN è risultato abbastanza complicato, all’inizio dello stage la versione disponibile era la 1.8.2, ma a breve è stata resa disponibile la 2.0.1, sulla quale è stato realizzato il progetto. Oggi la versione distribuita è la 2.2. Il passaggio dalla versione 1.8 alla 2.0 è risultato impossibile e si è preferito riconfigurare la macchina virtuale da zero, anche perché la versione del sistema operativo necessario per configurare CKAN era cambiata (senza che ciò venisse detto nella documentazione).
+Per le versioni minori il processi di aggiornamento è più semplice, ma è spiegato solo nel caso si utilizzino i pacchetti precompilati.
+
+CKAN mette a disposizione degli utenti un servizio di supporto gratuito attraverso due mailing list, una dedicata agli \href{http://lists.okfn.org/mailman/listinfo/ckan-dev}{sviluppatori} e una di \href{http://lists.okfn.org/mailman/listinfo/ckan-discuss}{carattere generico}.
+L’impressione avuta è che in queste mailing list non venga però dato supporto dagli sviluppatori, ma sia solo un canale di comunicazione tra i diversi utenti.
+Inoltre CKAN mette anche a disposizione un servizio di \href{http://ckan.org/services/support/}{supporto a pagamento} dove però non vengono indicati i costi.\\
+
+L’\textbf{utilizzo} della piattaforma da parte dell’amministratore del sistema è semplice, ma richiede che venga effettuato del lavoro a monte, infatti il processo di caricamento dei dataset risulta essere snello, ma poco efficace quando si carica un file in formato CSV non formattato come richiesto dalla piattaforma (contenente caratteri speciali, elementi separati da puntoevirgola o tabulazione al posto della virgola) poiché l’analisi automatica da parte del DataStorer non viene effettuata correttamente e ciò non viene comunicato. Discorso analogo avviene per i formati XLS.
+
+Le API fornite dalla piattaforma permettono di effettuare comodamente le operazioni più comuni e sono ben descritte.
+
+L’interfaccia è pulita e di facile utilizzo da parte dei cittadini. Il download dei dataset può avvenire solo nel formato in cui sono stati caricati, ciò vuol dire che utenti meno esperti troveranno difficile utilizzare i datset poiché abituati ad utilizzare formati differenti da quelli usati dai tecnici.\\
+
+Per poter utilizzare la piattaforma CKAN serve quindi un team di persone che si occupino dei 3 aspetti precedentemente elencati. È necessario avere delle buone conoscenze del sistema operativo Ubuntu o delle ottime competenze su altre distribuzioni Linux e saper installare CKAN dai sorgenti. In alternativa è possibile richiedere il \href{http://ckan.org/services/deployment/}{supporto di CKAN per il deploy}, il cui costo però non è noto.
+Un’altra alternativa può essere di scegliere di utilizzare \href{http://ckan.org/services/hosted-slas/}{il servizio di hosting} fornito da CKAN, il cui prezzo varia tra i 550\$ e i 750\$ mensili per la versione che esclude le API sui dataset e tra i 1500\$ e i 2000\$ mensili per la versione che supporta anche le API e include 1 giorno di supporto tecnico.\\
+
+Ad oggi il processo di evoluzione di CKAN sembra essere molto rapido e vengono rilasciate nuove versioni della piattaforma con una rapidità fino a poco tempo fa impensabile. A breve inoltre dovrebbe essere pubblicato la versione di Socrata Open Source definitiva. In quest’occasione sarà utile fare un nuovo confronto tra le due piattaforme e valutare quale risponde meglio alle esigenze del Comune.
+
+\section{Sviluppi futuri}
+
+Recentemente CKAN ha reso disponibile una guida per \href{https://github.com/okfn/ckan/wiki/How-to-install-CKAN-2.0-on-Azure-from-VM-Depot}{installare CKAN 2.0 su macchina virtuale Windows Azure}, questa potrebbe essere una soluzione da sperimentare per abbattere i problemi di configurazione iniziali.\\
+
+L’integrazione con GIT è ancora da sviluppare, occorre fare un’analisi tecnologica di questa piattaforma e capire quali dati possono essere espostati e in che modalità. Da non sottovalutare la necessità di filtrare ed aggregare i dati al fine di proteggere la privacy e la possibile inferenza legata ai casi in cui le informazioni riguardino uno specifico settore.\\
+
+L’integrazione con Regione Lombardia sembra essere realizzabile, ma andrà sperimentata accuratamente prima di renderla disponibile per non rischiare di avere dei dataset pubblicati sulle due piattaforme non coerenti l’uno con l’altro.
 
 
 %Pur abbracciando l‚Äôaspetto filosofico e concordando con il comune approccio ideologico (i dati sono acquisiti con i soldi dei cittadini e a loro debbono tornare !), riteniamo che solo un‚Äôanalisi critica ed impietosa della situazione attuale possa produrre risultati concreti (si veda il percorso travagliato dell‚ÄôOpenSource all‚Äôinterno della Pubblica Amministrazione)

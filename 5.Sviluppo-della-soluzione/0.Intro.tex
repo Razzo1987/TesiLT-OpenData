@@ -9,7 +9,7 @@ Da terminale sono state installate le dipendenze richieste e il pacchetto di CKA
 Successivamente sono stati installati anche PostgreSQL (database relazionale ad oggetti) e Solr (piattaforma di ricerca):\\
 
 \shellcmd{sudo apt-get install -y postgresql solr-jetty}\\
-Si è scelto di utilizzare un unica istanza di CKAN e quindi un solo file di configurazione dello schema Solr. Di conseguenza si è installato il Java Development Kit e modificato il file di configurazione Jetty:\\
+Si è scelto di utilizzare un’unica istanza di CKAN e quindi un solo file di configurazione dello schema Solr. Di conseguenza si è installato il Java Development Kit e modificato il file di configurazione Jetty:\\
 
 \shellcmd{sudo apt-get install solr-jetty openjdk-6-jdk}
 \shellcmd{sudo gedit /etc/default/jetty}
@@ -75,7 +75,7 @@ Si è creata la directory per il salvataggio in locale e si è modificato il file 
 %\subsection{DataStorer}
 \section{Automazione analisi file caricati}
 
-Infine si è installato il \textbf{DataStorer}, che permette di aggiunge automaticamente al DataStore i dati che vengono inseriti in CKAN (linkati o caricati nel FileStore). Ciò viene fatto attraverso un attività di analisi automatica e successiva aggiunta nel DataStore da un processo che viene eseguito in modo asincrono.\\
+Infine si è installato il \textbf{DataStorer}, che permette di aggiunge automaticamente al DataStore i dati che vengono inseriti in CKAN (linkati o caricati nel FileStore). Ciò viene fatto attraverso un’attività di analisi automatica e successiva aggiunta nel DataStore da un processo che viene eseguito in modo asincrono.\\
 Si è quindi installato git, si sono poi recuperati i sorgenti del pacchetto e installati i requisiti:\\
 
 \shellcmd{sudo apt-get install git-core}

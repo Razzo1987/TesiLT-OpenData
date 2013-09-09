@@ -1,8 +1,11 @@
 \section{Integrazione con Regione Lombardia}
 
-La piattaforma \url{dati.lombardia.it} sviluppata da Regione Lombardia vuole porsi l’obiettivo di raccogliere i dataset per la diffusione dei dati individuati come riutilizzabili dalle Pubbliche Amministrazioni interessate.
-E’ quindi nostro interesse che nella piattaforma regionale sia presente un elenco dei dataset pubblicati nella piattaforma che vogliamo realizzate. Questo elenco deve rispecchiare l’attuale situazione e quindi deve essere aggiornato ad ogni modifica dei dataset presenti sulla nostra piattaforma oppure con una frequenza decisa arbitrariamente.
+La piattaforma \url{dati.lombardia.it} sviluppata da Regione Lombardia vuole porsi l’obiettivo di raccogliere i dataset contenenti i dati individuati come riutilizzabili dalle Pubbliche Amministrazioni interessate.
+È quindi nostro interesse che nella piattaforma regionale sia presente un elenco dei dataset pubblicati nel portale che vogliamo realizzate. Questo elenco deve rispecchiare l’attuale situazione e quindi deve essere aggiornato ad ogni modifica dei dataset presenti sulla nostra piattaforma oppure con una frequenza decisa arbitrariamente.\\
 
-La piattaforma regionale è sviluppata con Socrata, e al momento non esiste un automatismo che permetta il dialogo tra questa e CKAN.\\
+Si è quindi pensato di eseguire un importazione dei dati presenti nel catalogo della piattaforma CKAN realizzata per il Comune di Vigevano sull’installazione di Socrata utilizzata da Regione Lombardia.
+Al momento non esiste un automatismo che permetta il dialogo tra questa due piattaforme, ma esiste la possibilità di realizzarla sfruttando le informazioni riportate nella documentata sul sito web di Socrata dedicato agli sviluppatori alla pagina \url{http://dev.socrata.com/publishers/importing}.\\
 
-Si è quindi pensato di eseguire un importazione dei dati di CKAN su Socrata attraverso una procedura automatizzata esterna, questa procedura deve essere eseguita dal server che ospita la piattaforma CKAN.
+L’importazione dei dati viene eseguita come un processo in due fasi. In primo luogo, il file di dati in sé viene caricato tramite l'API, e viene poi analizzato per determinare il tipo di dati che esso contiene. I risultati di tale analisi vengono restituiti, dopodiché è possibile apportare modifiche al modo in cui l'importatore interpreta i dati. A questo punto si invia il progetto di importazione risultante, e a questo punto inizia il processo di importazione vero e proprio.\\
+
+Questa operazione andrà eseguita attraverso una procedura automatizzata esterna dal server che ospita la piattaforma CKAN.

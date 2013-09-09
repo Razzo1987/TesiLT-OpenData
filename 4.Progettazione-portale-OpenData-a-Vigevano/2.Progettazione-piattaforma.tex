@@ -1,20 +1,20 @@
 \section{Progettazione piattaforma}
-%a partire dal git in automatico su ckan con metadati
-%\begin{quoting}
+
 Con delibera 14 del 19/01/2012 il Comune di Vigevano, nell'ambito del Progetto InnoVi, cofinanziato dalla regione, ha adottato, in riuso dal Comune di Milano, la piattaforma \textbf{GIT} \cite{CittaVigevano-GCn104}.
 
-La piattaforma GIT, di proprietà della Pubblica Amministrazione italiana realizzato attraverso un progetto (GIT “Gestione Intersettoriale del Territorio”) del programma ELISA del Dipartimento Affari Regionali realizzato da Comuni, implementata al fine di integrare, relazionare e rendere interoperabili i dati in possesso di  un ente per il territorio di competenza, costituisce la dorsale sulla quale i dati possono transitare al fine di acquisire un maggior livello di accuratezza, attendibilità e completezza.
+La piattaforma GIT, di proprietà della Pubblica Amministrazione italiana e realizzato attraverso un progetto (GIT “Gestione Intersettoriale del Territorio”) del programma ELISA del Dipartimento Affari Regionali realizzato da Comuni, è stata implementata al fine di integrare, relazionare e rendere interoperabili i dati in possesso di  un ente per il territorio di competenza.
+GIT costituisce la dorsale sulla quale i dati possono transitare al fine di acquisire un maggior livello di accuratezza, attendibilità e completezza.
 
 Pur preservando la peculiarità di poter rendere disponibili i dati grezzi, rispettando l’indicazione “ROW DATA NOW”, il processo di pubblicazione può essere realizzato in modo progressivo attraverso il trattamento dell’informazione per renderla più chiara, relazionata e dunque economicamente più vantaggiosa per il fruitore finale.
 
 Gli Elementi conoscitivi del territorio sono stati catalogati per la piattaforma in tematismi:
 
 \begin{itemize}
-\item         Soggetti che si muovono sul territorio e che agiscono con interazione diretta o intermediata;
+\item         Soggetti che si muovono sul territorio e che agiscono con interazione diretta o intermediata.
 
-\item     Oggetti presenti sul territorio che costituiscono strumenti dell’azione dei Soggetti, Patrimonio economico rappresentativo del valore stesso dei luoghi e contenitori in grado di generare lavoro per la loro conservazione e manutenzione;
+\item     Oggetti presenti sul territorio che costituiscono strumenti dell’azione dei Soggetti, Patrimonio economico rappresentativo del valore stesso dei luoghi e contenitori in grado di generare lavoro per la loro conservazione e manutenzione.
 
-\item         Ambiente che caratterizza il territorio amministrato e costituisce un importante riferimento per le regole del vivere civile per la valorizzazione del patrimonio naturale e di manufatti da gestire, valorizzare e preservare;
+\item         Ambiente che caratterizza il territorio amministrato e costituisce un importante riferimento per le regole del vivere civile per la valorizzazione del patrimonio naturale e di manufatti da gestire, valorizzare e preservare.
 
 \item         toponomastica e geolocalizzazione dei luoghi degli oggetti, e delle persone che rappresenta la mappatura e il riferimento per la ricerca, la misurazione e la relazione delle informazioni territoriali di interesse.
 \end{itemize}
@@ -23,7 +23,7 @@ Attraverso queste “chiavi” di conoscenza primarie del territorio, i dati delle s
 
 La piattaforma GIT è costituita da componenti software realizzati per assicurare determinate funzioni di trattamento delle informazioni, oltre che da servizi di navigazione trasversale fra le fonti e da servizi verticali specialistici, anche cartografici.
 
-Ma sono le funzioni di trattamento delle fonti dati e di orchestrazione, implementate dal componente Controller a poter dare un valore aggiunto al processo di apertura dei dati, si descrivo no ora brevemente le peculiarità e le funzioni principali:
+Ma sono le funzioni di trattamento delle fonti dati e di orchestrazione, implementate dal componente Controller a poter dare un valore aggiunto al processo di apertura dei dati, si descrivono ora brevemente le peculiarità e le funzioni principali:
 
 \begin{itemize}
 \item   sistema di reperimento e acquisizione dell’informazione attraverso varie modalità e protocolli. I sistemi operazionali e/o gli utenti possono depositare su repository relazionali / ftp / file system i loro dati  e la piattaforma si preoccuperà di importare tali dati con periodicità stabilità. Oppure possono essere implementate e configurate delle sonde applicative che controllano lo stato di variazione aggiornamento di una determinata fonte dati (relazionale e non) al fine di importare le variazioni nel sistema GIT.
@@ -57,7 +57,7 @@ Per fare ciò sono percorribili (come mostrato in figura \ref{fig:git-ckan}) tre 
 \item Permettere alla piattaforma di accedere direttamente ai dati di GIT.
 \end{enumerate}
 
-La terza soluzione presenta dei problemi di sicurezza, perché per realizzarla bisogna modificare GIT creando un interfaccia che permetta l'interrogazione ai dati dall'esterno. Ciò può diventare un problema nel momento in cui si creano delle API di interrogazioni generiche e quindi in alcune occasioni si finisce a violare la privacy degli utenti.
+La terza soluzione presenta dei problemi di sicurezza, perché per realizzarla bisogna modificare GIT creando un’interfaccia che permetta l'interrogazione ai dati dall'esterno. Ciò può diventare un problema nel momento in cui si creano delle API di interrogazioni generiche e quindi in alcune occasioni si finisce a violare la privacy degli utenti.
 
 La prima soluzione può essere applicata nei casi in cui le informazioni hanno una frequenza di aggiornamento rada, ma diventa impraticabile nel momento in cui i dati vengo aggiornati con una frequenza rilevante, in quando bisogna fare manualmente un aggiornamento ogni volta.
 
