@@ -46,22 +46,22 @@ Per fare ciò sono percorribili (come mostrato in figura \ref{fig:git-ckan}) tre 
 
 \begin{figure}[htbp]
    \centering
-   \includegraphics[scale=0.3]{img/git-ckan} % requires the graphicx package
+   \includegraphics[scale=0.4]{img/git-ckan_clear} % requires the graphicx package
    \caption{Possibili soluzioni di integrazione tra GIT e il portale}
    \label{fig:git-ckan}
 \end{figure}
 
 \begin{enumerate}
+\item Permettere alla piattaforma di accedere direttamente ai dati di GIT.
 \item Effettuare periodicamente delle esportazioni dei dati da GIT per caricarle sulla piattaforma.
 \item Effettuare l'aggiornamento dei dati sulla piattaforma ogni volta che vengono aggiornati su GIT in automatico.
-\item Permettere alla piattaforma di accedere direttamente ai dati di GIT.
 \end{enumerate}
 
-La terza soluzione presenta dei problemi di sicurezza, perché per realizzarla bisogna modificare GIT creando un’interfaccia che permetta l'interrogazione ai dati dall'esterno. Ciò può diventare un problema nel momento in cui si creano delle API di interrogazioni generiche e quindi in alcune occasioni si finisce a violare la privacy degli utenti.
+La prima soluzione presenta dei problemi di sicurezza, perché per realizzarla bisogna modificare GIT creando un’interfaccia che permetta l'interrogazione ai dati dall'esterno. Ciò può diventare un problema nel momento in cui si creano delle API di interrogazioni generiche e quindi in alcune occasioni si finisce a violare la privacy degli utenti.
 
-La prima soluzione può essere applicata nei casi in cui le informazioni hanno una frequenza di aggiornamento rada, ma diventa impraticabile nel momento in cui i dati vengo aggiornati con una frequenza rilevante, in quando bisogna fare manualmente un aggiornamento ogni volta.
+La seconda soluzione può essere applicata nei casi in cui le informazioni hanno una frequenza di aggiornamento rada, ma diventa impraticabile nel momento in cui i dati vengo aggiornati con una frequenza rilevante, in quando bisogna fare manualmente un aggiornamento ogni volta.
 
-La soluzione vincente risulta quindi essere la seconda. Questa comporta un controllo degli eventi sulla piattaforma GIT e l'esistenza di un sistema di aggiornamento automatizzato (senza intervento umano) sulla piattaforma Open Data.
+La soluzione vincente risulta quindi essere la terza. Questa comporta un controllo degli eventi sulla piattaforma GIT e l'esistenza di un sistema di aggiornamento automatizzato (senza intervento umano) sulla piattaforma Open Data.
 Nell'ottica del riutilizzo del software, questa componente deve essere in grado di controllare eventuali aggiornamenti di GIT, di anonimizzare i dati e di inserirli nella piattaforma attraverso API.\\
 
 %Catalogo e dizionario
@@ -82,4 +82,4 @@ Al fine di rendere compatibile le modifiche apportate alla piattaforma CKAN tra 
    \label{fig:workflow}
 \end{figure}
 
-La progettazione del catalogo è quindi stata fatta come mostrato in fig. \ref{fig:workflow} inserendo un trigger (una procedura che viene eseguita in maniera automatica in coincidenza di un determinato evento) che ad ogni aggiornamento nel database della tabella contenente i dataset corrisponda l’esecuzione di una query che restituisce il catalogo (facendo un join tra diverse tabelle) e la esporti in formato CSV. Il file contenente il catalogo è esso stesso parte integrante della piattaforma essendo a sua volta un dataset.
+La progettazione del catalogo è quindi stata fatta come mostrato in fig. \ref{fig:workflow} inserendo un trigger (una procedura che viene eseguita in maniera automatica in coincidenza di un determinato evento) nella base di dati, il quale si attiva ad ogni aggiornamento nel database della tabella contenente i dataset, eseguendo una query che restituisce il catalogo (facendo un join tra diverse tabelle) e la esporta in formato CSV. Il file contenente il catalogo è esso stesso parte integrante della piattaforma essendo a sua volta un dataset.
