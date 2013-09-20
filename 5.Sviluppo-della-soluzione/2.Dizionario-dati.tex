@@ -81,6 +81,7 @@ La funzione non fa altro che eseguire l'esportazione della query in CSV nella po
 {\indent{\footnotesize \verb#$create_datacatalog$#}}\\
 {\indent{\footnotesize \verb#LANGUAGE plpgsql;#}}\\
 \\
+\newpage
 Mentre invece il trigger si attiva ad ogni modifica della tabella \texttt{resource} e invoca la funzione:\\
 
 {\indent{\footnotesize \verb#CREATE TRIGGER datacatalog_update#}}\\
@@ -96,12 +97,11 @@ Infine per rendere possibile la modifica del file \texttt{datacatalog.csv} da pa
 \shellcmd{sudo chmod 644 /usr/lib/ckan/default/src/ckan/ckan/public/datacatalog.csv}
 \shellcmd{sudo chown postgres:postgres /usr/lib/ckan/default/src/ckan/ckan\\/public/datacatalog.csv}
 
-
+\newpage
 \section{Dizionario dati}
 Nelle intenzioni dello sviluppo della piattaforma si è cercato di aggiungere nel catalogo anche le informazioni sul tipo di dato contenuto in ogni singolo dataset. In pratica si voleva inserire un’ulteriore colonna nel catalogo contenente le intestazioni della tabella del dataset.
-Purtroppo non si è trovata una soluzione per realizzare questa feature in quanto non si è trovato il modo di recuperare le informazioni presenti nei due differenti database che sono relazionati come mostrato in figura \ref{fig:DBs-ckan}.%:
+Purtroppo non si è trovata una soluzione per realizzare questa feature in quanto non si è trovato il modo di recuperare le informazioni presenti nei due differenti database che sono relazionati come mostrato in figura \ref{fig:DBs-ckan}:
 
-\newpage
 \begin{figure}[htbp]
    \centering
    \includegraphics[scale=0.48]{img/DBs-ckan_clear.png}

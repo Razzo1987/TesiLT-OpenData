@@ -1,7 +1,7 @@
-\section{Socrata (OpenSource)}
+\section{Socrata (Open Source)}
 % Versione Open Source
 Socrata è una piattaforma sviluppata dall'omonimia società con sede negli Stati Uniti d'America. Socrata è un servizio "Software as a service".
-Dal 10 aprile 2013 è disponibile anche in una versione Community Edition rilasciata come OpenSource al fine di promuovere uno standard intorno ai dati aperti e far crescere la comunità.
+Dal 10 aprile 2013 è disponibile anche in una versione Community Edition rilasciata come Open Source al fine di promuovere uno standard intorno ai dati aperti e far crescere la comunità.
 
 Il Socrata Open Data Server e le componenti che lo compongono sono stati resi disponibili con licenza Apache. 
 L’architettura del sistema può quindi essere suddivisa in una serie di componenti separate che la compongono come mostrato in figura \ref{fig:socrata-architecture}.
@@ -25,9 +25,9 @@ Ciò permette in caso di guasti di re-sincronizzare il database.
 
 Mentre la lettura avviene attraverso:
 \begin{enumerate}
-\item[\textcolor{Green}{\mycirc{\tiny{A}}}] Un’applicazione invia una richiesta al server SoQL. Questa viene analizzata come descritto serctitto in soql-reference.
-\item[\textcolor{Green}{\mycirc{\tiny{B}}}] Il Query Coordinator determina a quale database inviare la richiesta (in futuro ci portano essere diversi archivi secondari).
-\item[\textcolor{Green}{\mycirc{\tiny{C}}}] Il Query Coordinator passa fuori la query all’adattatore appropriato che esegue la query sull’archivio corretto e restituisce l'appropriato payload C-JSON.
+\item[{\includegraphics[scale=0.028]{img/A}}] Un’applicazione invia una richiesta al server SoQL. Questa viene analizzata come descritto serctitto in soql-reference.
+\item[{\includegraphics[scale=0.028]{img/B}}] Il Query Coordinator determina a quale database inviare la richiesta (in futuro ci portano essere diversi archivi secondari).
+\item[{\includegraphics[scale=0.028]{img/C}}] Il Query Coordinator passa fuori la query all’adattatore appropriato che esegue la query sull’archivio corretto e restituisce l'appropriato payload C-JSON.
 \end{enumerate}
 
 Ad oggi sono state rese disponibili con licenza Open Source solo alcune parti:
