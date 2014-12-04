@@ -3,10 +3,10 @@ TesiLT-OpenData
 
 Gli <b>Open Data</b> sono sia una pratica che un ideologia e in questi ultimi anni, grazie ad
 internet, si stanno diffondendo sempre più. Secondo wikipedia per Open Data si intendono
-*"alcune tipologie di dati liberamente accessibili a tutti, privi di brevetti o altre forme di
+<i>"alcune tipologie di dati liberamente accessibili a tutti, privi di brevetti o altre forme di
 controllo che ne limitino la riproduzione e le cui restrizioni di copyright eventualmente si
-limitano ad obbligare di citare la fonte o al rilascio delle modifiche allo stesso modo"*.
-Open Data di per śe non vuol dire* e-participation* (partecipazione in processi di governo e di governance) o e-democracy, ma insieme ad essi costituisce i pilastri dell’Open
+limitano ad obbligare di citare la fonte o al rilascio delle modifiche allo stesso modo"<i>.
+Open Data di per sé non vuol dire <i>e-participation</i> (partecipazione in processi di governo e di governance) o e-democracy, ma insieme ad essi costituisce i pilastri dell’Open
 Government, l’idea in base alla quale la pubblica amministrazione deve essere aperta ai
 cittadini in termini di trasparenza, di collaborazione e di partecipazione diretta al processo
 decisionale.
